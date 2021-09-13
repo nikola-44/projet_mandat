@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+
+
+def accueil(request):
+    return render(request, 'accueil.html')
 
 
 def contact(request):
-    return HttpResponse('contact')
+    return render(request, 'contact.html')
