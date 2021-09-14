@@ -7,3 +7,6 @@ def accueil(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def acces(request):
+    return render(request, 'acces.html')
