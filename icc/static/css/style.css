@@ -1,3 +1,13 @@
+html,body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+main {
+   min-height:100%;
+   position:relative;
+}
+
 footer {
     position: fixed;
     left: 0;
@@ -6,6 +16,8 @@ footer {
     color: #7FFFD4;
     background-color: #3d3d3f;
     text-align: center;
+    display: block;
+    height: 300px;
 }
 
 footer div{
@@ -16,7 +28,10 @@ footer div{
 
 
 
-
+.planning {
+   padding:10px;
+   padding-bottom:400px;   /* Height of the footer */
+}
 
 
 
