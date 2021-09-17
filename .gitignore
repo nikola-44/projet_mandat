@@ -105,3 +105,5 @@ db.sqlite3
 .DS_Store
 .DS_STORE
 icc/db.sqlite3
+*.pyc
+

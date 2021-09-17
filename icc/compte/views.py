@@ -1,5 +1,7 @@
+from django.contrib.auth import authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login
 from .forms import CreerUtilisateur
 
 def inscriptionPage(request):
@@ -14,5 +16,12 @@ def inscriptionPage(request):
 
 def accesPage(request):
     context={}
-    return render(request,'acces.html', context)
+    if request.method=='POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        user=authenticate(request, username= username, password= password)
+        if user is not None:
+            login(request, user)
+            return redirect('accueil')
 
+    return render(request,'acces.html', context)
