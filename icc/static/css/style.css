@@ -11,3 +11,46 @@ footer {
 footer div{
     /*border: 1px solid red;*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Réservations */
+
+.reservation {
+    background-color: lightsteelblue;
+    border: black solid 1px;
+}
+
+.reservationr {
+    background-color: lightseagreen;
+    border: black solid 1px;
+}
+
+.legendes * {
+    display: inline-block;
+}
+
+.couleur-reserve {
+    height: 40px;
+    width: 40px;
+    border: black solid 1px;
+    background-color: lightseagreen;
+}
+
+.couleur-libre {
+    height: 40px;
+    width: 40px;
+    border: black solid 1px;
+    background-color: lightsteelblue;
+}
