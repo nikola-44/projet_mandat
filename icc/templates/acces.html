@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
 <html>
 
 <head>
@@ -14,7 +18,7 @@
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			background: #3d3d3f !important;
+			background: white !important;
 
 
 		}
@@ -78,9 +82,9 @@
 
 </head>
 <body>
-	<div class="container h-100">
+	<div class="container h-100 mt-5">
 		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
+			<div class="user_card mt-sm-auto mt-lg-5">
 				<div class="d-flex justify-content-center">
 
 
@@ -125,3 +129,5 @@
 </body>
 
 </html>
+
+{% endblock %}
