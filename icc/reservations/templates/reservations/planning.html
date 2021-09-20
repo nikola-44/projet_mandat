@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<!-- Titre -->
 <h1>Planning des réservations</h1>
 
-
+<!-- Contenu de la page -->
 <div class="container mt-5 planning">
+
+<!--    Navbar date -->
     <div class="row">
+
+<!--        Fleche de gauche -->
         <div class="col-sm-1 float-left">
             <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="black" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
@@ -13,7 +19,11 @@
                 </svg>
             </a>
         </div>
+
+<!--        Date -->
         <div class="col-sm-3 m-auto text-center fw-bold">Vendredi, le 17 septembre 2021</div>
+
+<!--        Fleche de droite -->
         <div class="col-sm-1 float-right text-end">
             <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="black" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
@@ -22,118 +32,137 @@
             </a>
         </div>
     </div>
+
+<!--    Block des reservations -->
     <div class="row mt-5 mb-5 pb-5 justify-content-center">
+
+
+<!--        Ligne de reservations (du matin) -->
         <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-1 m-1 reservation">
-                <div class="modif align-top offset-md-7 border border-danger">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+
+<!--            Block d'une reservation-->
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservationr modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
                       <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                       <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                     </svg>
                 </div>
 
-                <div class="heure d-flex m-auto">1h</div>
+                <div class="heure fw-bold mt-5">8h00 - 8h45</div>
+<!--                <p class="heure fw-bold d-inline-block align-middle w100 mt-5">8h00 - 8h45</p>-->
             </div>
-            <div class="col-sm-2 text-center p-1 m-1 reservationr">
-                <button type="button" class="btn btn-light align-top offset-md-7 border border-danger">Modif</button>
-                2
+
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservationr modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">8h50 - 9h20</div>
             </div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">3</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">4</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">5</div>
+
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservation modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">9h30</div>
+            </div>
+
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservationr modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">10h30 - 11h00</div>
+            </div>
+
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservationr modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">11h00 - 12h15</div>
+            </div>
+
         </div>
+
+<!--        Ligne de test -->
         <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">6</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">7</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">8</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">9</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">10</div>
+
+<!--            Block d'une réservation-->
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservationr modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">13h00 - 13h15</div>
+            </div>
+
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservation modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">13h25</div>
+            </div>
+
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservationr modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">14h30 - 15h05</div>
+            </div>
+
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservation modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">15h15</div>
+            </div>
+
+            <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservationr modele">
+                <div class="modif align-self-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square float-end" viewBox="0 0 16 16">
+                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                    </svg>
+                </div>
+
+                <div class="heure fw-bold mt-5">16h45 - 17h30</div>
+            </div>
+
         </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservation">1</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">2</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">3</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">4</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">5</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">6</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">7</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">8</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">9</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">10</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservation">1</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">2</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">3</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">4</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">5</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">6</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">7</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">8</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">9</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">10</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservation">1</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">2</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">3</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">4</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">5</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">6</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">7</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">8</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">9</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">10</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservation">1</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">2</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">3</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">4</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">5</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">6</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">7</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">8</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">9</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">10</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservation">1</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">2</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">3</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">4</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">5</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">6</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">7</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">8</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">9</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">10</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservation">1</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">2</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">3</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">4</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">5</div>
-        </div>
-        <div class="row justify-content-around mt-3">
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">6</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">7</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">8</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservation">9</div>
-            <div class="col-sm-2 text-center p-5 m-1 reservationr">10</div>
-        </div>
+
     </div>
+
+<!--    Légendes des couleurs -->
     <div class="row float-end">
         <div class="row row-cols-2">
             <div class="col-sm-1 couleur-reserve">

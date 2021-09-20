@@ -42,13 +42,18 @@ footer div{
 
 /* Réservations */
 
+.modele {
+    height: 130px;
+}
+
+
 .reservation {
-    background-color: lightsteelblue;
+    background-color: #c2dbf3;
     border: black solid 1px;
 }
 
 .reservationr {
-    background-color: lightseagreen;
+    background-color: #7FFFD4;
     border: black solid 1px;
 }
 
@@ -60,12 +65,12 @@ footer div{
     height: 40px;
     width: 40px;
     border: black solid 1px;
-    background-color: lightseagreen;
+    background-color: #7FFFD4;
 }
 
 .couleur-libre {
     height: 40px;
     width: 40px;
     border: black solid 1px;
-    background-color: lightsteelblue;
+    background-color: #c2dbf3;
 }
