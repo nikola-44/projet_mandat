@@ -5,3 +5,7 @@ from django.http import HttpResponse
 
 def planning(request):
     return render(request, 'reservations/planning.html')
+
+
+def prestations(request):
+    return render(request, 'reservations/prestations.html')

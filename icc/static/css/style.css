@@ -9,7 +9,7 @@ main {
 }
 
 footer {
-    position: fixed;
+    /*position: fixed;*/
     left: 0;
     bottom: 0;
     width: 100%;
@@ -30,7 +30,7 @@ footer div{
 
 .planning {
    padding:10px;
-   padding-bottom:400px;   /* Height of the footer */
+   padding-bottom:300px;   /* Height of the footer */
 }
 
 
