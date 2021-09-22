@@ -6,3 +6,7 @@ from django.contrib.auth.decorators import login_required
 # @login_required(login_url='acces')
 def planning(request):
     return render(request, 'reservations/planning.html')
+
+
+def prestations(request):
+    return render(request, 'reservations/prestations.html')
