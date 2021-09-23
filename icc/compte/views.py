@@ -2,21 +2,33 @@ from django.contrib.auth import authenticate, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
-from .forms import CreerUtilisateur
+from .forms import CreerUtilisateur, ProfileForm
 from django.contrib import messages
 
 
 
 def inscriptionPage(request):
     form = CreerUtilisateur()
+    profile_form = ProfileForm()
     if request.method == 'POST':
         form = CreerUtilisateur(request.POST)
-        if form.is_valid():
+        profile_form = ProfileForm(request.POST)
+        if form.is_valid() and profile_form.is_valid():
+
+            user = form.save(commit=False)
+            user.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+
+            profile.save()
+
             form.save()
             user=form.cleaned_data.get('username')
             messages.success(request,'Compte Créer avec succès, Bienvenue '+user)
             return redirect('acces')
-    context = {'form': form}
+    context = {'form': form,
+               'profile': profile_form,
+               }
     return render(request, 'inscription.html', context)
 
 

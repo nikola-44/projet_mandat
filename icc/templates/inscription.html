@@ -103,6 +103,37 @@
 							</div>
 							{{form.password2}}
 						</div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            {{profile.nom}}
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" type=""><i class="fas fa-user"></i></span>
+                            </div>
+                            {{profile.prenom}}
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" type="date"><i class="fas fa-calendar-alt"></i></span>
+                            </div>
+                            {{ profile.dateNaissance }}
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            </div>
+                            {{ profile.telephone }}
+                        </div>
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text" type=""><i class="fas fa-venus-mars"></i></span>
+                            </div>
+                            {{profile.genre}}
+                        </div>
+
 
                         {{form.errors}}
 
@@ -132,6 +163,12 @@
 		form_fields[2].placeholder='Email..';
 		form_fields[3].placeholder='Mot de passe...';
 		form_fields[4].placeholder='Confirmez mot de passe...';
+		form_fields[5].placeholder='Nom...';
+		form_fields[6].placeholder='Prénom...';
+		form_fields[7].placeholder='Date de naissance...';
+		form_fields[8].placeholder='Téléphone...';
+
+
 
 
 		for (var field in form_fields){
