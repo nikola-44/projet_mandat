@@ -11,7 +11,7 @@ class Client(models.Model):
     prenom = models.CharField(max_length=100)
     dateNaissance = models.DateField()
     telephone = models.CharField(max_length=12)
-    genre = models.CharField(max_length=50)
+    genre = models.CharField(max_length=15)
 
 
 def __str__(self):
