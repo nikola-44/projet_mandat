@@ -6,7 +6,6 @@ from .forms import CreerUtilisateur, ProfileForm
 from django.contrib import messages
 
 
-
 def inscriptionPage(request):
     form = CreerUtilisateur()
     profile_form = ProfileForm()
@@ -14,7 +13,6 @@ def inscriptionPage(request):
         form = CreerUtilisateur(request.POST)
         profile_form = ProfileForm(request.POST)
         if form.is_valid() and profile_form.is_valid():
-
             user = form.save(commit=False)
             user.save()
             profile = profile_form.save(commit=False)
@@ -23,8 +21,8 @@ def inscriptionPage(request):
             profile.save()
 
             form.save()
-            user=form.cleaned_data.get('username')
-            messages.success(request,'Compte Créer avec succès, Bienvenue '+user)
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Compte Créer avec succès, Bienvenue ' + user)
             return redirect('acces')
     context = {'form': form,
                'profile': profile_form,
@@ -42,9 +40,10 @@ def accesPage(request):
             login(request, user)
             return redirect('accueil')
         else:
-            messages.info(request,"Utilisateur ou mot de passe invalide")
+            messages.info(request, "Utilisateur ou mot de passe invalide")
 
     return render(request, 'acces.html', context)
+
 
 def logoutUser(request):
     logout(request)

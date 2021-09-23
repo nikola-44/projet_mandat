@@ -43,7 +43,7 @@
                     <li class="nav-item dropdown ms-lg-auto">
                         <a class="nav-link dropdown-toggle" style="color: #7FFFD4; font-size: 25px;" href="#"
                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Mon compte
+                            Connecté en tant que {{ request.user }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{% url 'acces' %}">Connexion</a></li>
@@ -52,6 +52,8 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="#">Modifier compte</a></li>
+                            <li><a class="dropdown-item" href="{% url "quitter" %}">Déconnexion</a></li>
+
                         </ul>
                     </li>
                 </ul>
@@ -84,7 +86,8 @@
 </body>
 <footer>
     <div>
-        Copyright © 2021 | Catisa coiffure - www.xxxxxxxxxxxxx.ch - Chemin des Prés-Seigneur 27, 1254 Jussy - +41 79 640 62 00
+        Copyright © 2021 | Catisa coiffure - www.xxxxxxxxxxxxx.ch - Chemin des Prés-Seigneur 27, 1254 Jussy - +41 79 640
+        62 00
     </div>
 </footer>
 </html>
