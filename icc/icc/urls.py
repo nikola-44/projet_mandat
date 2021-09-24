@@ -28,6 +28,7 @@ urlpatterns = [
     path('', views.acces),
     path('compte/', include('compte.urls')),
     path('contact/', include('contact.urls')),
+    path('gererProduits/', views.gererProduits, name='gererProduit'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
