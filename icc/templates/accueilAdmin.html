@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bienvenue dans l'accueil de la partie admin. ici on retrouvera la partie gérer client, gérer réservation, gérer produits, etc.</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact</title>
+    </head>
+    <body>
+    <h1>Que souhaitez-vous modifier ?</h1><br><br><br>
+
+    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 350px"><a href="{% url 'gererProduit' %}" style="color: white; text-decoration: none">Gérer les produits</a></button>
+    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 50px" >Gérer les réservations</button><br><br><br>
+    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 350px">Gérer les clients</button>
+    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 50px">Gérer les prestations</button>
+
+    </body>
+    </html>
+
+{% endblock %}
