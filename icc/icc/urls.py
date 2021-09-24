@@ -20,13 +20,14 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('contact/', views.contact, name='contact'),
+    # path('contact/', views.contact, name='contact'),
     path('', views.accueil, name='accueil'),
     path('coiffure/', views.coiffure, name='coiffure'),
     path('produits/', views.produits, name='produits'),
     path('reservations/', include('reservations.urls')),
     path('', views.acces),
     path('compte/', include('compte.urls')),
+    path('contact/', include('contact.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
