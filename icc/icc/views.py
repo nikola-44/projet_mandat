@@ -19,3 +19,7 @@ def accueilAdmin(request):
 
 def gererProduits(request):
     return render(request, 'gererProduit.html')
+
+
+def gererClients(request):
+    return render(request, 'gererClients.html')

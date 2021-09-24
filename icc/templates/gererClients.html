@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Clients</title>
+    </head>
+    <body>
+    <h1>Souhaitez-vous ajouter des clients ?</h1><br><br><br>
+
+    <div class="col-md-5">
+        <h5>Clients:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="#">Créer Un Client</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Username</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Téléphone</th>
+                    <th>Email</th>
+                    <th>Genre</th>
+                </tr>
+                {#				{% for client in clients %}#}
+                <tr>
+                    <th>qwerqw</th>
+                    <th>ds</th>
+                    <th>fd</th>
+                    <th>fd</th>
+                    <th>fd</th>
+                    <th>fd</th>
+                    <th><a class='btn btn-sm btn-dark' href="#">Modifier</a></th>
+                    <th><a class='btn btn-sm btn-danger' href="#">Supprimer</a></th>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+    </body>
+    </html>
+
+{% endblock %}
