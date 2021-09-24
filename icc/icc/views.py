@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 
 def accueil(request):
@@ -19,3 +19,4 @@ def produits(request):
 
 def acces(request):
     return render(request, 'acces.html')
+

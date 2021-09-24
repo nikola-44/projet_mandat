@@ -47,7 +47,7 @@
                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Connecté en tant que {{ request.user }}
                         </a>
-
+                    
                         {% if request.user.is_authenticated and not user.is_staff %}
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
