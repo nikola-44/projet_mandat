@@ -55,15 +55,6 @@ footer div{
 
 
 
-/* JavaScript */
-
-.active {
-    pointer-events: auto;
-    opacity: 1;
-    background-color: red;
-
-}
-
 /* Réservations */
 
 .modele {
