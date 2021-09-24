@@ -23,6 +23,7 @@ urlpatterns = [
     # path('contact/', views.contact, name='contact'),
     path('', views.accueil, name='accueil'),
     path('produits/', views.produits, name='produits'),
+    path('accueilAdmin/', views.accueilAdmin, name='accueilAdmin'),
     path('reservations/', include('reservations.urls')),
     path('', views.acces),
     path('compte/', include('compte.urls')),
