@@ -55,8 +55,14 @@ footer div{
 
 
 
+/* JavaScript */
 
+.active {
+    pointer-events: auto;
+    opacity: 1;
+    background-color: red;
 
+}
 
 /* Réservations */
 
@@ -71,7 +77,7 @@ footer div{
 }
 
 .reservationr {
-    background-color: #7FFFD4;
+    background-color: rgba(100, 134, 125, 0.5);
     border: black solid 1px;
 }
 
@@ -83,7 +89,7 @@ footer div{
     height: 40px;
     width: 40px;
     border: black solid 1px;
-    background-color: #7FFFD4;
+    background-color: rgba(100, 134, 125, 0.5);
 }
 
 .couleur-libre {

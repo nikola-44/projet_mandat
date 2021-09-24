@@ -5,6 +5,9 @@ from datetime import datetime, date
 
 
 class Reservation(models.Model):
-    commentaire = models.TextField(blank=True, default='')
     date = models.CharField(max_length=255)
     heure = models.TimeField()
+    commentaire = models.TextField(blank=True, default='')
+
+    def __str__(self):
+        return self.commentaire
