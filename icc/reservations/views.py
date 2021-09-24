@@ -10,6 +10,10 @@ def planning(request):
     return render(request, 'reservations/planning.html')
 
 
+def changedate(request):
+    return render(request, 'reservations/planning.html')
+
+
 def reserver(request):
     if request.method == 'POST':
         form = Reservation(request.POST)
