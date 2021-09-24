@@ -45,7 +45,7 @@
                     <li class="nav-item dropdown ms-lg-auto">
                         <a class="nav-link dropdown-toggle" style="color: #7FFFD4; font-size: 25px;" href="#"
                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Compte
+                            Connecté en tant que {{ request.user }}
                         </a>
                     
                         {% if request.user.is_authenticated and not user.is_staff %}
