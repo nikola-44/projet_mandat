@@ -12,3 +12,6 @@ def produits(request):
 def acces(request):
     return render(request, 'acces.html')
 
+
+def accueilAdmin(request):
+    return render(request, 'accueilAdmin.html')

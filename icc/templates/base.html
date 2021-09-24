@@ -61,7 +61,7 @@
                         {% elif request.user.is_authenticated and user.is_staff %}
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Admin</a></li>
+                                <li><a class="dropdown-item" href="{% url 'accueilAdmin' %}">Admin</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -74,7 +74,6 @@
                                 <li><a class="dropdown-item" href="{% url 'inscription' %}">Inscription</a></li>
                             </ul>
                         {% endif %}
-
                     </li>
                 </ul>
 
