@@ -34,7 +34,7 @@
                         <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'planning' %}">Réservations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'prestations' %}">Coiffure</a>
+                        <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'prestations' %}">Prestations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" style="color: #7FFFD4; font-size: 25px;"
@@ -47,7 +47,7 @@
                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Connecté en tant que {{ request.user }}
                         </a>
-
+                    
                         {% if request.user.is_authenticated and not user.is_staff %}
 
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
