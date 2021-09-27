@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <style>
+        .page {
+            min-height: 1600px;
+        }
+
+
+        .btn {
+            background-color: #64867d;
+            color: white;
+        }
+
+    </style>
+
+    <h1>Prestations test</h1>
+
+    <div class="container mt-5 page ">
+
+        <div class="row">
+            <div class="col">
+                <h1>Courts</h1>
+                {% for prestation in prestations %}
+                    {% if prestation.pour == 'Courts' %}
+                        <div class="row">
+                            <button type="button" class="btn btn-lg w-75 my-1" data-bs-toggle="popover"
+                                    title="Popover title"
+                                    data-bs-content="And here's some amazing content. It's very engaging. Right?">
+                                {{ prestation.nom }} - {{ prestation.prix }} CHF
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col">
+                <h1>Longs</h1>
+                {% for prestation in prestations %}
+                    {% if prestation.pour == 'Longs' %}
+                        <div class="row">
+                            <button type="button" class="btn btn-lg w-75 my-1" data-bs-toggle="popover"
+                                    title="Popover title"
+                                    data-bs-content="And here's some amazing content. It's very engaging. Right?">
+                                {{ prestation.nom }} - {{ prestation.prix }} CHF
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+
+        var popover = new bootstrap.Popover(document.querySelector('.btn'), {
+            container: 'body'
+        })
+
+
+    </script>
+{% endblock %}
