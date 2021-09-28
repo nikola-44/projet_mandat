@@ -53,7 +53,7 @@ def test_prestations(request):
         cpt += 1
     print(dico)
 
-    return render(request, 'reservations/prestations.html', {'prestations': prestations, 'dico': dico})
+    return render(request, 'reservations/test-prestations.html', {'prestations': prestations, 'dico': dico})
 
 
 def reserver(request):
