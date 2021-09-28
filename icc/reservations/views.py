@@ -66,7 +66,7 @@ def reserver(request):
         form = Reservation()
     return render(request, 'reservations/planning.html', {'form': form})
 
-#
-# def prestations(request):
-#     return render(request, 'reservations/prestations.html')
+
+def prestations(request):
+    return render(request, 'reservations/prestations.html')
 
