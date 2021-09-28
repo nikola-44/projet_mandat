@@ -4,65 +4,161 @@
 
     <style>
         .page {
-            min-height: 1600px;
+            min-height: 1200px;
         }
 
+        .accordion {
+            width: 80%;
+        }
 
-        .btn {
+        .accordion-body {
+            background-color: rgba(100, 134, 125, 0.3);
+            text-align: center;
+        }
+
+        .accordion-button {
             background-color: #64867d;
             color: white;
         }
 
+        .accordion-button[aria-expanded="true"] {
+            background-color: rgba(100, 134, 125, 0.6);
+            color: white;
+        }
+
+        .accordion-button:after {
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .ligne {
+            border-bottom: solid black 1px;
+            padding-bottom: 1px;
+            padding-top: 5px;
+            width: 60%;
+            margin: auto;
+        }
     </style>
 
-    <h1>Prestations test</h1>
+    <h1>Liste des préstations test</h1>
 
     <div class="container mt-5 page ">
 
         <div class="row">
             <div class="col">
-                <h1>Courts</h1>
-                {% for prestation in prestations %}
-                    {% if prestation.pour == 'Courts' %}
-                        <div class="row">
-                            <button type="button" class="btn btn-lg w-75 my-1" data-bs-toggle="popover"
-                                    title="Popover title"
-                                    data-bs-content="And here's some amazing content. It's very engaging. Right?">
-                                {{ prestation.nom }} - {{ prestation.prix }} CHF
-                            </button>
+
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                    {% for nom, prix in dico.items %}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#prestation-{{ forloop.counter }}" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                    {{ nom }}
+                                </button>
+                            </h2>
+                            <div id="prestation-{{ forloop.counter }}" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingOne"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="row ligne">
+                                        <div class="col">
+                                            courts
+                                        </div>
+                                        <div class="col">
+                                            {{ prix.0 }}
+                                        </div>
+                                    </div>
+                                    <div class="row ligne">
+                                        <div class="col">
+                                            longs
+                                        </div>
+                                        <div class="col">
+                                            {{ prix.1 }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    {% endif %}
-                {% endfor %}
+                    {% endfor %}
+                    {% for prestation in prestations %}
+                        {% if prestation.pour == '/' %}
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#prestation-{{ prestation.id }}" aria-expanded="false"
+                                            aria-controls="flush-collapseOne">
+                                        {{ prestation.nom }}
+                                    </button>
+                                </h2>
+                                <div id="prestation-{{ prestation.id }}" class="accordion-collapse collapse"
+                                     aria-labelledby="flush-headingOne"
+                                     data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        <div class="row ligne">
+                                            <div class="col">
+                                                {{ prestation.prix.to_integral }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             </div>
-            <div class="col">
-                <h1>Longs</h1>
-                {% for prestation in prestations %}
-                    {% if prestation.pour == 'Longs' %}
-                        <div class="row">
-                            <button type="button" class="btn btn-lg w-75 my-1" data-bs-toggle="popover"
-                                    title="Popover title"
-                                    data-bs-content="And here's some amazing content. It's very engaging. Right?">
-                                {{ prestation.nom }} - {{ prestation.prix }} CHF
-                            </button>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
+
+
+{#            <div class="col">#}
+{#                <h1>Autres coupes</h1>#}
+{##}
+{#                <div class="accordion accordion-flush" id="accordionFlushExample">#}
+{##}
+{#                    {% for prestation in prestations %}#}
+{#                        {% if prestation.pour == '/' %}#}
+{##}
+{#                            <div class="accordion-item">#}
+{#                                <h2 class="accordion-header" id="flush-headingOne">#}
+{#                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"#}
+{#                                            data-bs-target="#prestation-{{ prestation.id }}" aria-expanded="false"#}
+{#                                            aria-controls="flush-collapseOne">#}
+{#                                        {{ prestation.nom }}#}
+{#                                    </button>#}
+{#                                </h2>#}
+{#                                <div id="prestation-{{ prestation.id }}" class="accordion-collapse collapse"#}
+{#                                     aria-labelledby="flush-headingOne"#}
+{#                                     data-bs-parent="#accordionFlushExample">#}
+{#                                    <div class="accordion-body">#}
+{#                                        <div class="row ligne">#}
+{#                                            <div class="col">#}
+{#                                                {{ prestation.prix.to_integral }}#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        {% endif %}#}
+{#                    {% endfor %}#}
+{#                </div>#}
+{#            </div>#}
         </div>
-
-
     </div>
 
-    <script>
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl)
-        })
-
-        var popover = new bootstrap.Popover(document.querySelector('.btn'), {
-            container: 'body'
-        })
-
-
-    </script>
+{#    <script>#}
+{#        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))#}
+{#        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {#}
+{#            return new bootstrap.Popover(popoverTriggerEl)#}
+{#        })#}
+{##}
+{#        var popover = new bootstrap.Popover(document.querySelector('.btn'), {#}
+{#            container: 'body'#}
+{#        })#}
+{##}
+{##}
+{#    </script>#}
 {% endblock %}
