@@ -1,3 +1,4 @@
+# Châtelain Dorian
 from django.contrib.auth import authenticate, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm

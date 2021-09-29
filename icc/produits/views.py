@@ -1,3 +1,4 @@
+# Zumeri Faton et Châtelain Dorian
 from django.shortcuts import render
 
 # Create your views here.
