@@ -1,19 +1,15 @@
 # Zumeri Faton et Châtelain Dorian
 from django.shortcuts import render
+from .models import Produit
+
 
 # Create your views here.
-from icc.produits.models import Produit
 
 
-def produits(request, pk):
-    if request.method == "POST":
-        produits = Produit()
-        nom = request.POST.get('nom')
-        type = request.POST.get('type')
-        image = request.POST.get('image')
-        capacite = request.POST.get('capacite')
-        statut = request.POST.get('statut')
-    return render(request, 'gererProduit')
+def home(request):
+    return render(request, 'produits.html')
 
 
-
+def gererProduit(request):
+    produits = Produit.objects.all()
+    return render(request, '../templates/gererProduit.html', {'produits': produits})

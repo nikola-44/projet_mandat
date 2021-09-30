@@ -1,49 +1,40 @@
+{#Dorian Châtelain#}
 {% extends 'base.html' %}
 
 {% block content %}
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Produits</title>
-    </head>
-    <body>
     <h1>Quels produits souhaitez-vous modifier ?</h1><br><br><br>
 
+
     <div class="col-md-7">
-		<h5>Les produits</h5>
-		<hr>
-		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="#">Ajouter un produit</a>
-			<table class="table table-sm">
-				<tr>
-					<th>Produit</th>
-					<th>Type</th>
-					<th>ml.</th>
-					<th>Prix</th>
-					<th>Quantité</th>
-					<th>Mise à Jour</th>
-					<th>Supprimer</th>
-				</tr>
-{#				{% for commande in commandes %}#}
-				<tr>
-					<th>prod</th>
-					<th>asdf</th>
-					<th>1234</th>
-					<th>fqwr</th>
-                    <th>fqwr</th>
-					<th><a class='btn btn-sm btn-dark' href="#">Modifier</a></th>
-					<th><a class='btn btn-sm btn-danger' href="#">Supprimer</a></th>
-				</tr>
-{#				{% endfor %}#}
+        <h5>Les produits</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary  btn-sm btn-block" href="#">Ajouter un produit</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Produit</th>
+                    <th>Type</th>
+                    <th>ml.</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Mise à Jour</th>
+                    <th>Supprimer</th>
+                </tr>
+                    {% for n in produits %}
+                <tr>
+                    <th><p>{{ n.nom }}</p></th>
+                    <th><p>{{ n.type }}</p></th>
+                    <th><p>{{ n.capacite }}</p></th>
+                    <th><p>{{ n.statut }}</p></th>
+                    <th><p>{{ n.quantite }}</p></th>
+                    <th><a class='btn btn-sm btn-dark' href="#">Modifier</a></th>
+                    <th><a class='btn btn-sm btn-danger' href="#">Supprimer</a></th>
+                </tr>
+                {% endfor %}
 
-			</table>
-		</div>
-	</div>
-
-
-    </body>
-    </html>
+            </table>
+        </div>
+    </div>
 
 {% endblock %}

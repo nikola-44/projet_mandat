@@ -23,12 +23,12 @@ urlpatterns = [
     # path('contact/', views.contact, name='contact'),
     path('', views.accueil, name='accueil'),
     path('produits/', views.produits, name='produits'),
+    path('produits/', include('produits.urls')),
     path('accueilAdmin/', views.accueilAdmin, name='accueilAdmin'),
     path('reservations/', include('reservations.urls')),
     path('', views.acces),
     path('compte/', include('compte.urls')),
     path('contact/', include('contact.urls')),
-    path('gererProduits/', views.gererProduits, name='gererProduit'),
     path('gererClient/', views.gererClients, name='gererClients'),
 ]
 
