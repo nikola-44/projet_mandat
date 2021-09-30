@@ -10,6 +10,8 @@ class Produit(models.Model):
     # image = models.ImageField()
     capacite = models.IntegerField()
     statut = models.CharField(max_length=250)
+    quantite = models.IntegerField()
+
 
     def __str__(self):
         return self.nom
