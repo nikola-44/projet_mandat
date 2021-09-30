@@ -1,3 +1,4 @@
+# Zumeri Faton
 from django.shortcuts import render
 from .models import Contact
 from django.http import HttpResponse
