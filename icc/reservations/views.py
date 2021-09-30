@@ -18,17 +18,25 @@ def planning(request):
 
 # @app.route('/reservations/<string:jour>', methods=['GET'])
 def test(request, jour):  # ajouter un paramètre jour
+    prestations = Prestation.objects.all()
+    ty = Prestation.LONGEUR_CHEVEUX
+
+    types = []
+    for t in ty:
+        (_, valeur) = t
+        types.append(valeur)
+    print('Voici les types de cheveux: ' + str(type(types)), types)
     r_jour = Reservation.objects.all().filter(date=datetime.date.today() + datetime.timedelta(days=jour)).order_by('heure')
     r_matin = r_jour.exclude(heure__gt='12:00:00')
     r_apresmidi = r_jour.exclude(heure__lt='12:00:00')
 
-    return render(request, 'reservations/test.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi})
+    return render(request, 'reservations/test.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'prestations': prestations, 'types': types})
 
 
-@receiver(pre_save, sender=Reservation)
-def verification(request):
-    
-    return HttpResponse('Vous avez vérifié une réservation!')
+# @receiver(pre_save, sender=Reservation)
+# def verification(request):
+#
+#     return HttpResponse('Vous avez vérifié une réservation!')
 
 def test_prestations(request):
     prestations = Prestation.objects.all()

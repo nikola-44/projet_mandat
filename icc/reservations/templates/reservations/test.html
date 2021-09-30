@@ -53,6 +53,7 @@
 
             <!--        Ligne de reservations (du matin) -->
             <div class="row justify-content-around mt-3">
+                <h4>Matin</h4>
 
                 <!--            Block d'une reservation-->
                 {% for reservation in r_matin %}
@@ -80,6 +81,7 @@
 
             <!--        Ligne de test -->
             <div class="row justify-content-around mt-3">
+                <h4>Après-midi</h4>
 
 
                 <!--            Block d'une réservation-->
@@ -96,7 +98,7 @@
                             </svg>
                         </div>
 
-                        <div class="heure fw-bold mt-5">{{ reservation.heure }}</div>
+                        <div class="heure fw-bold mt-5">{{ reservation.heure }} - {{ reservation.calcul_duree }}</div>
 
 
                         <!--                <p class="heure fw-bold d-inline-block align-middle w100 mt-5">8h00 - 8h45</p>-->
@@ -176,32 +178,7 @@
                                         <label for="heure" class="col-form-label">heure:</label>
                                     </div>
                                     <div class="col">
-                                        <input type="number" class="form-control" id="heure">
-                                    </div>
-                                </div>
-                                <h3>Client</h3>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <label for="prenom" class="col-form-label">Prenom:</label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="prenom">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <label for="nom" class="col-form-label">Nom:</label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="nom">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <label for="email" class="col-form-label">Email:</label>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control" id="email">
+                                        <input type="time" id="heure" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -212,6 +189,70 @@
                                         <textarea class="form-control" id="message-text"></textarea>
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="prestations">Coupe: </label>
+                                    <div class="w-50 col float-end">
+                                        <select id="prestations" class="w-100" size="8" multiple>
+
+                                            {% for type in types %}
+                                                {% if forloop.counter == 1 %}
+                                                    <optgroup label="Coupe pour cheveux courts">
+                                                    {% for prestation in prestations %}
+                                                        {% if prestation.pour == 'Courts' %}
+                                                                    <option class="float-left"
+                                                                            value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    </optgroup>
+                                                {% elif forloop.counter == 2 %}
+                                                    <optgroup label="Coupe pour cheveux longs">
+                                                    {% for prestation in prestations %}
+                                                        {% if prestation.pour == 'Longs' %}
+                                                                    <option class="float-left"
+                                                                            value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    </optgroup>
+                                                {% elif forloop.counter == 3 %}
+                                                    <optgroup label="Autres coupes">
+                                                    {% for prestation in prestations %}
+                                                        {% if prestation.pour == '/' %}
+                                                                    <option class="float-left"
+                                                                            value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    </optgroup>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                        </select>
+                                    </div>
+                                </div>
+                                {#                                <h3>Client</h3>#}
+                                {#                                <div class="row mb-3">#}
+                                {#                                    <div class="col">#}
+                                {#                                        <label for="prenom" class="col-form-label">Prenom:</label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col">#}
+                                {#                                        <input type="text" class="form-control" id="prenom">#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                                <div class="row mb-3">#}
+                                {#                                    <div class="col">#}
+                                {#                                        <label for="nom" class="col-form-label">Nom:</label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col">#}
+                                {#                                        <input type="text" class="form-control" id="nom">#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
+                                {#                                <div class="row mb-3">#}
+                                {#                                    <div class="col">#}
+                                {#                                        <label for="email" class="col-form-label">Email:</label>#}
+                                {#                                    </div>#}
+                                {#                                    <div class="col">#}
+                                {#                                        <input type="text" class="form-control" id="email">#}
+                                {#                                    </div>#}
+                                {#                                </div>#}
                             </div>
                         </form>
                     </div>
@@ -237,27 +278,27 @@
                                 <h3>Réservation</h3>
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <label for="prenom" class="col-form-label">Date:</label>
+                                        <label for="date" class="col-form-label">Date:</label>
                                     </div>
                                     <div class="col">
-                                        <input type="date" class="form-control" id="dat">
+                                        <input type="date" class="form-control" id="date">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <label for="prenom" class="col-form-label">heure:</label>
+                                        <label for="heure" class="col-form-label">heure:</label>
                                     </div>
                                     <div class="col">
-                                        <input type="time" id="inputMDEx1" class="form-control">
+                                        <input type="time" id="heure" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <label for="message-text" class="col-form-label">Commentaire:</label>
+                                        <label for="message" class="col-form-label">Commentaire:</label>
                                     </div>
                                     <div class="col">
-                                        <textarea class="form-control" id="mes"></textarea>
+                                        <textarea class="form-control" id="message"></textarea>
                                     </div>
                                 </div>
                             </div>
