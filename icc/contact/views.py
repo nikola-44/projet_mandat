@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from .models import Contact
 from django.http import HttpResponse
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -16,6 +17,13 @@ def contact(request):
         contact.prénom = prénom
         contact.email = email
         contact.message = message
+        send_mail(
+            nom,
+            prénom,
+            email,
+            message,
+            ['faton.zmr@eduge.ch']
+        )
         contact.save()
         return HttpResponse("<h1>Merci de nous avoir contacter !</h1>")
     return render(request, 'contact.html')
