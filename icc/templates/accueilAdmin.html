@@ -11,10 +11,10 @@
     <body>
     <h1>Que souhaitez-vous modifier ?</h1><br><br><br>
 
-    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 350px"><a href="{% url 'produits:gererProduit' %}" style="color: white; text-decoration: none">Gérer les produits</a></button>
-    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 50px" >Gérer les réservations</button><br><br><br>
-    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 350px"><a href="{% url 'gererClients' %}" style="color: white; text-decoration: none">Gérer les clients</a></button>
-    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 50px">Gérer les prestations</button>
+    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 350px" onclick="location.href='{% url 'produits:gererProduit' %}'"><a style="color: white; text-decoration: none">Produits</a></button>
+    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 50px" >Réservations</button><br><br><br>
+    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 350px" onclick="location.href='{% url 'gererClients' %}'"><a style="color: white; text-decoration: none">Clients</a></button>
+    <button type="button" class="btn btn-primary btn-lg" style="height:200px; width:200px; margin-left: 50px">Prestations</button>
 
     </body>
     </html>

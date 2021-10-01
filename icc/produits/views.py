@@ -1,5 +1,6 @@
 # Zumeri Faton et Châtelain Dorian
 from django.shortcuts import render, redirect
+from .forms import ProduitForm
 from .models import Produit
 
 
@@ -16,14 +17,27 @@ def gererProduit(request):
 
 
 def ajouter_produit(request):
-    form = Produit()
-    if request.method == 'POST':
-        form = Produit(request.POST)
-        if form.is_valid():
-            form.save()
+    if request.method == "POST":
+        fm = ProduitForm(request.POST)
+        if fm.is_valid():
+            fm.save()
             return redirect('/produits/gererProduits')
-    context = {'form': form}
-    return render(request, '../templates/ajouter_produit.html', context)
+    else:
+        fm = ProduitForm()
+    return render(request, '../templates/ajouter_produit.html', {'form': fm})
+
+
+def modifier_produit(request, pk):
+    if request.method == 'POST':
+        pi = Produit.objects.get(id=pk)
+        fm = ProduitForm(request.POST, instance=pi)
+        if fm.is_valid():
+            fm.save()
+            return redirect('/produits/gererProduits')
+    else:
+        pi = Produit.objects.get(id=pk)
+        fm = ProduitForm(instance=pi)
+    return render(request, '../templates/modifier_produit.html', {'form': fm})
 
 
 def supprimer_produit(request, pk):
