@@ -22,15 +22,6 @@ footer {
     height: 25px;
 }
 
-.textGauche{
-    margin: 0px;
-    padding-right: 900px;
-}
-.textDroite{
-    display: flex;
-    float: right;
-}
-
 footer div{
     /*border: 1px solid red;*/
 }
