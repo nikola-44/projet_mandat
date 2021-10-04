@@ -11,7 +11,6 @@
     </head>
     <body>
     <h1>Nous contacter</h1>
-    <h4>N'hésitez pas à nous contacter par téléphone ou par email, vous trouverez nos coordonnées ci-dessous :</h4>
     <br><br><br>
     <table width="75%">
         <tr>
@@ -30,31 +29,31 @@
     <br><br>
     <form class="was-validated" method="post">
         {% csrf_token %}
+        <div class="col-sm my-auto">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3367.147749366162!2d6.264583680598971!3d46.2335393569716!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c6e8ec09f83cb%3A0xd3f82b913d7969cc!2sChem.%20des%20Pr%C3%A9s-Seigneur%2027%2C%201254%20Jussy!5e1!3m2!1sfr!2sch!4v1632382534294!5m2!1sfr!2sch"
+                    width="450" height="300" style="float: right; width: 40%" loading="lazy"></iframe>
+        </div>
         <div class="row">
-            <input name="nom" type="text" class="form-control" id="nom" placeholder="Nom" required>
+            <input name="nom" type="text" class="form-control" id="nom" style="width: 75%" placeholder="Nom" required>
         </div>
         <br>
         <div class="row">
-            <input name="prénom" type="text" class="form-control" id="prénom" placeholder="Prénom" required>
+            <input name="prénom" type="text" class="form-control" id="prénom" style="width: 75%" placeholder="Prénom" required>
         </div>
         <br>
         <div class="row">
-            <input name="email" type="email" class="form-control" id="email" placeholder="Email" required>
+            <input name="email" type="email" class="form-control" id="email" style="width: 75%" placeholder="Email" required>
         </div>
         <br>
         <div class="row">
             <textarea id="message" class="form-control" name="message" rows="7" cols="30"
-                      placeholder="Écrivez-votre message ici..." required></textarea><br/>
+                      style="width: 75%" placeholder="Écrivez-votre message ici..." required></textarea><br/>
             <span id="message_validation" class="error_message"></span>
         </div>
         <br><br>
-        <button type="submit" class="btn btn-primary" style="float: right">Envoyer</button>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
-    <br><br><br><br>
-    <div class="col-sm my-auto">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3367.147749366162!2d6.264583680598971!3d46.2335393569716!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478c6e8ec09f83cb%3A0xd3f82b913d7969cc!2sChem.%20des%20Pr%C3%A9s-Seigneur%2027%2C%201254%20Jussy!5e1!3m2!1sfr!2sch!4v1632382534294!5m2!1sfr!2sch"
-                width="450" height="300" style="width: 100%" allowfullscreen="" loading="lazy"></iframe>
-    </div>
+
     <br><br>
     </body>
     </html>
