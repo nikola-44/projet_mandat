@@ -17,13 +17,13 @@ def contact(request):
         contact.prénom = prénom
         contact.email = email
         contact.message = message
-        send_mail(
-            nom,
-            prénom,
-            email,
-            message,
-            ['faton.zmr@eduge.ch']
-        )
+        # send_mail(
+        #     nom,
+        #     prénom,
+        #     email,
+        #     message,
+        #     ['faton.zmr@eduge.ch']
+        # )
         contact.save()
         return HttpResponse("<h1>Merci de nous avoir contacter !</h1>")
     return render(request, 'contact.html')
