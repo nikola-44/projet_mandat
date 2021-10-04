@@ -1,19 +1,566 @@
 {# Zumeri Faton et Châtelain Dorian #}
 {% extends 'base.html' %}
 {% block title %}Produits{% endblock %}
+{% load static %}
 
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Produits</title>
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Produits</title>
+    </head>
+    <body>
+    <h3>Couleurs | Gefärbt</h3><hr style="height: 3px">
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+            <div class="box-element product">
+                <Strong>Color Stay Shampoo SULFATE FREE</Strong>
+                <hr>
+                <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                <a class="btn btn-outline-success" href="#">Voir</a>
+                <p style="display: inline-block; float: right"><strong>CHF 27.00</strong></p>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Color Stay Conditioner</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 34.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Color Stay Treatment</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 42.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+            <div class="box-element product">
+                <Strong>Color Stay Shampoo SULFATE FREE</Strong>
+                <hr>
+                <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                <a class="btn btn-outline-success" href="#">Voir</a>
+                <p style="display: inline-block; float: right"><strong>CHF 50.50</strong></p>
+            </div>
+        </div>
+    </div>
+    <br><br>
 
+    <h3>Permanantes | Dauergewellt</h3><hr style="height: 3px">
 
-</body>
-</html>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Frizz Control Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 27.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Frizz Control Cond. Leave-in</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 39.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Frizz Control Protector</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 35.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Frizz Control Treatment</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 42.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Frizz Control Cream</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 34.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Frizz Control Travel Pack</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 38.50</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <h3>Endommagés | Beschädigt</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Deep Care Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Deep Care Conditioner</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 34.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Deep Care Treatment</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 42.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Deep Care Drops</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 26.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Deep Care Travel Pack</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 50.50</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <h3>Fins affaiblis | Fein une schwach</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Body Maker Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Body Maker Balm</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 34.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Body Maker Mist</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 39.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Body Maker Travel Pack</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 38.50</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <h3>Normaux sains | Normal und gesund</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Organic Balance Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 27.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Organic Balance Hydra Oil</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 34.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Organic Balance Treatment</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 42.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Organic Balance Oil</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 49.50</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Organic Balance Travel Pack</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 38.50</strong></p>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <h3>White Silver</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>White Silver Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>White Silver</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 39.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <h3>Cocoa Brown</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Cocoa Brown Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Cocoa Brown Mask</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 39.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <h3>Coral Red</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Coral Red Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Coral Red Mask</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 39.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <h3>Saffron Copper</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Saffron Copper Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Saffron Copper Mask</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 39.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <h3>Violet Lavender</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Violet Lavender Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Violet Lavender Mask</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 39.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <h3>Cheveux Stressés | Gestresste Haar</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Full Defense Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Full Defense Treatment</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 42.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Full Defense Seru,</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 27.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Full Defense Mist</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 39.00</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Full Defense Travel Pack</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 38.50</strong></p>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+
+    <h3>En profondeur| Tief wirksam reinigend</h3><hr style="height: 3px">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="box-element product">
+                <img src="{% static 'media/color-stay-shampoo-sulfate-free.png' %}">
+                <div class="box-element product">
+                    <Strong>Perfect Cleanse Shampoo</Strong>
+                    <hr>
+                    <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                    <a class="btn btn-outline-success" href="#">Voir</a>
+                    <p style="display: inline-block; float: right"><strong>CHF 25.00</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>
+    <br><br>
 
 {% endblock %}
