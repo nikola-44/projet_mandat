@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="form-rdv">
+        <h2>Prendre rendez-vous</h2>
+        <form class="rendezvous" action="{% url 'tweets:ajouter' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Ajouter">
+        </form>
+    </div>
+
+{% endblock %}

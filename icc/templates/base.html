@@ -20,7 +20,7 @@
 <header>
     <nav class="navbar navbar-expand-md py-2 navbar-dark" style="background-color: #3d3d3f">
         <div class="container-fluid">
-            <a href="{% url 'accueil' %}"><img src={% static 'media/logo.jpg' %} alt="logo"/></a>
+            <a href="{% url 'accueil' %}"><img src="{% static 'media/logo.jpg' %}" alt="logo"/></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +32,7 @@
                         <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'produits:home' %}">Produits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'planning' %}">Réservations</a>
+                        <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'planning-visiteurs' %}">Réservations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'prestations' %}">Prestations</a>

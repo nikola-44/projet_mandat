@@ -1,3 +1,4 @@
+{#FERREIRA STOJKOVIC Nikola#}
 {% extends 'base.html' %}
 
 {% block content %}
@@ -68,7 +69,17 @@
                             </svg>
                         </div>
 
-                        <div class="heure fw-bold mt-5">{{ reservation.heure }} - {{ reservation.calcul_duree }}</div>
+                        <div class="heure fw-bold mt-5">{{ reservation.heure }} - {{ reservation.heure_fin }}</div>
+                        <div class="heure fw-bold mt-5">{{ reservation.prix_total }}</div>
+                        <div class="heure fw-bold mt-5">
+                            {% for prestation in reservation.liste_prestations %}
+                                {% if forloop.counter > 1 %}
+                                    , {{ prestation }}
+                                {% else %}
+                                    {{ prestation }}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
 
 
                         <!--                <p class="heure fw-bold d-inline-block align-middle w100 mt-5">8h00 - 8h45</p>-->
@@ -98,7 +109,7 @@
                             </svg>
                         </div>
 
-                        <div class="heure fw-bold mt-5">{{ reservation.heure }} - {{ reservation.calcul_duree }}</div>
+                        <div class="heure fw-bold mt-5">{{ reservation.heure }} - {{ reservation.heure_fin }}</div>
 
 
                         <!--                <p class="heure fw-bold d-inline-block align-middle w100 mt-5">8h00 - 8h45</p>-->
@@ -197,30 +208,30 @@
                                             {% for type in types %}
                                                 {% if forloop.counter == 1 %}
                                                     <optgroup label="Coupe pour cheveux courts">
-                                                    {% for prestation in prestations %}
-                                                        {% if prestation.pour == 'Courts' %}
-                                                                    <option class="float-left"
-                                                                            value="{{ prestation.id }}">{{ prestation.nom }}</option>
-                                                        {% endif %}
-                                                    {% endfor %}
+                                                        {% for prestation in prestations %}
+                                                            {% if prestation.pour == 'Courts' %}
+                                                                <option class="float-left"
+                                                                        value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                            {% endif %}
+                                                        {% endfor %}
                                                     </optgroup>
                                                 {% elif forloop.counter == 2 %}
                                                     <optgroup label="Coupe pour cheveux longs">
-                                                    {% for prestation in prestations %}
-                                                        {% if prestation.pour == 'Longs' %}
-                                                                    <option class="float-left"
-                                                                            value="{{ prestation.id }}">{{ prestation.nom }}</option>
-                                                        {% endif %}
-                                                    {% endfor %}
+                                                        {% for prestation in prestations %}
+                                                            {% if prestation.pour == 'Longs' %}
+                                                                <option class="float-left"
+                                                                        value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                            {% endif %}
+                                                        {% endfor %}
                                                     </optgroup>
                                                 {% elif forloop.counter == 3 %}
                                                     <optgroup label="Autres coupes">
-                                                    {% for prestation in prestations %}
-                                                        {% if prestation.pour == '/' %}
-                                                                    <option class="float-left"
-                                                                            value="{{ prestation.id }}">{{ prestation.nom }}</option>
-                                                        {% endif %}
-                                                    {% endfor %}
+                                                        {% for prestation in prestations %}
+                                                            {% if prestation.pour == '/' %}
+                                                                <option class="float-left"
+                                                                        value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                            {% endif %}
+                                                        {% endfor %}
                                                     </optgroup>
                                                 {% endif %}
                                             {% endfor %}
