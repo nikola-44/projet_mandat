@@ -7,11 +7,11 @@
     <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#reserver">
         Prendre rendez-vous
     </button>
-    <a href="reserver.html">prendre rdv</a>
+    <a href="{% url 'rendezvous' %}">prendre rdv</a>
 
-{#    <div class="alert alert-success m-2" id="msg" role="alert">#}
-{#    Alert!#}
-{#    </div>#}
+    {#    <div class="alert alert-success m-2" id="msg" role="alert">#}
+    {#    Alert!#}
+    {#    </div>#}
 
     <!-- Titre -->
     <h1>Planning des réservations</h1>
@@ -57,6 +57,8 @@
             <div class="row justify-content-around mt-3">
 
                 {% for reservation in r_matin %}
+
+{#                    if mandante/client/visiteur changer les options #}
 
                     <!--            Block d'une reservation-->
                     <div class="col-sm-2 text-center p-1 justify-content-center m-1 reservationr modele">
@@ -143,125 +145,125 @@
         </div>
 
 
-{#        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"#}
-{#             aria-hidden="true">#}
-{#            <div class="modal-dialog">#}
-{#                <div class="modal-content">#}
-{#                    <div class="modal-header">#}
-{#                        <h5 class="modal-title" id="exampleModalLabel">Modification</h5>#}
-{#                        <button type="button" class="btn-close" data-bs-dismiss="modal"#}
-{#                                aria-label="Close"></button>#}
-{#                    </div>#}
-{#                    <div class="modal-body">#}
-{#                        <form>#}
-{#                            <div class="w-75 m-auto">#}
-{#                                <h3>Réservation</h3>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="date" class="col-form-label">Date:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <input type="date" class="form-control" id="date">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="heure" class="col-form-label">heure:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <input type="time" class="form-control" id="heure">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <h3>Client</h3>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="prenom" class="col-form-label">Prenom:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <input type="text" class="form-control" id="prenom">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="nom" class="col-form-label">Nom:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <input type="text" class="form-control" id="nom">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="email" class="col-form-label">Email:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <input type="email" class="form-control" id="email">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="message-text" class="col-form-label">Message:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <textarea class="form-control" id="message-text"></textarea>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </form>#}
-{#                    </div>#}
-{#                    <div class="modal-footer">#}
-{#                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>#}
-{#                        <button type="button" class="btn btn-primary">Modifier</button>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{##}
-{#                        <h5 class="modal-title" id="reserver">Prendre rendez-vous</h5>#}
-{#                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
-{#                    </div>#}
-{#                    <div class="modal-body">#}
-{#                        <form action="#" method="post">#}
-{#                            <div class="w-75 m-auto">#}
-{#                                <h3>Réservation</h3>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="date" class="col-form-label">Date:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <input type="date" class="form-control" id="date">#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="heure" class="col-form-label">heure:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <input type="time" id="heure" class="form-control">#}
-{#                                    </div>#}
-{#                                </div>#}
-{##}
-{#                                <div class="row mb-3">#}
-{#                                    <div class="col">#}
-{#                                        <label for="commentaire" class="col-form-label">Commentaire:</label>#}
-{#                                    </div>#}
-{#                                    <div class="col">#}
-{#                                        <textarea class="form-control" id="commentaire"></textarea>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </form>#}
-{#                    </div>#}
-{#                    <div class="modal-footer">#}
-{#                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>#}
-{#                        <button type="button" class="btn btn-primary">Modifier</button>#}
-{#                    </div>#}
+        {#        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"#}
+        {#             aria-hidden="true">#}
+        {#            <div class="modal-dialog">#}
+        {#                <div class="modal-content">#}
+        {#                    <div class="modal-header">#}
+        {#                        <h5 class="modal-title" id="exampleModalLabel">Modification</h5>#}
+        {#                        <button type="button" class="btn-close" data-bs-dismiss="modal"#}
+        {#                                aria-label="Close"></button>#}
+        {#                    </div>#}
+        {#                    <div class="modal-body">#}
+        {#                        <form>#}
+        {#                            <div class="w-75 m-auto">#}
+        {#                                <h3>Réservation</h3>#}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="date" class="col-form-label">Date:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <input type="date" class="form-control" id="date">#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="heure" class="col-form-label">heure:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <input type="time" class="form-control" id="heure">#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <h3>Client</h3>#}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="prenom" class="col-form-label">Prenom:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <input type="text" class="form-control" id="prenom">#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="nom" class="col-form-label">Nom:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <input type="text" class="form-control" id="nom">#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="email" class="col-form-label">Email:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <input type="email" class="form-control" id="email">#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="message-text" class="col-form-label">Message:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <textarea class="form-control" id="message-text"></textarea>#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                        </form>#}
+        {#                    </div>#}
+        {#                    <div class="modal-footer">#}
+        {#                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>#}
+        {#                        <button type="button" class="btn btn-primary">Modifier</button>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        {##}
+        {#                        <h5 class="modal-title" id="reserver">Prendre rendez-vous</h5>#}
+        {#                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>#}
+        {#                    </div>#}
+        {#                    <div class="modal-body">#}
+        {#                        <form action="#" method="post">#}
+        {#                            <div class="w-75 m-auto">#}
+        {#                                <h3>Réservation</h3>#}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="date" class="col-form-label">Date:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <input type="date" class="form-control" id="date">#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="heure" class="col-form-label">heure:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <input type="time" id="heure" class="form-control">#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {##}
+        {#                                <div class="row mb-3">#}
+        {#                                    <div class="col">#}
+        {#                                        <label for="commentaire" class="col-form-label">Commentaire:</label>#}
+        {#                                    </div>#}
+        {#                                    <div class="col">#}
+        {#                                        <textarea class="form-control" id="commentaire"></textarea>#}
+        {#                                    </div>#}
+        {#                                </div>#}
+        {#                            </div>#}
+        {#                        </form>#}
+        {#                    </div>#}
+        {#                    <div class="modal-footer">#}
+        {#                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>#}
+        {#                        <button type="button" class="btn btn-primary">Modifier</button>#}
+        {#                    </div>#}
 
 
         <script>
 
             {#Afficher message de confirmation#}
 
-            setTimeout(function (){
+            setTimeout(function () {
                 if ($('#msg').length > 0) {
                     $('#msge').remove();
                 }
@@ -333,5 +335,6 @@
             })();
 
         </script>
+    </div>
 
 {% endblock %}

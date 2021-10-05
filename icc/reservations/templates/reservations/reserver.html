@@ -5,9 +5,9 @@
 
     <div class="form-rdv">
         <h2>Prendre rendez-vous</h2>
-        <form class="rendezvous" action="{% url 'tweets:ajouter' %}" method="post">
+        <form class="rendezvous" action="{% url 'rendezvous' %}" method="post">
             {% csrf_token %}
-            {{ form }}
+                {{ form.as_p }}
             <input type="submit" value="Ajouter">
         </form>
     </div>
