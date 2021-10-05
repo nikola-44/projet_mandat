@@ -54,6 +54,7 @@
 
 
             <!--        Ligne de reservations (du matin) -->
+        <h1>Matin</h1>
             <div class="row justify-content-around mt-3">
 
                 {% for reservation in r_matin %}
@@ -80,6 +81,7 @@
             </div>
 
             <!--        Ligne de reservations (de l'après-midi) -->
+        <h1>Après-midi</h1>
             <div class="row justify-content-around mt-3">
 
                 {% for reservation in r_apresmidi %}
@@ -262,23 +264,23 @@
         <script>
 
             {#Afficher message de confirmation#}
-
-            setTimeout(function () {
-                if ($('#msg').length > 0) {
-                    $('#msge').remove();
-                }
-            }, 2000)
-
+{##}
+{#            setTimeout(function () {#}
+{#                if ($('#msg').length > 0) {#}
+{#                    $('#msge').remove();#}
+{#                }#}
+{#            }, 2000)#}
+{##}
             {#Remplir le modal pour chaque réservation#}
             {#https://stackoverflow.com/questions/10626885/passing-data-to-a-bootstrap-modal#}
-
-            $(document).on("click", ".open-AddBookDialog", function () {
-                var myBookId = $(this).data('id');
-                $(".modal-body #bookId").val(myBookId);
-                // As pointed out in comments,
-                // it is unnecessary to have to manually call the modal.
-                // $('#addBookDialog').modal('show');
-            });
+{##}
+{#            $(document).on("click", ".open-AddBookDialog", function () {#}
+{#                var myBookId = $(this).data('id');#}
+{#                $(".modal-body #bookId").val(myBookId);#}
+{#                // As pointed out in comments,#}
+{#                // it is unnecessary to have to manually call the modal.#}
+{#                // $('#addBookDialog').modal('show');#}
+{#            });#}
 
             {# Affiche la date #}
 

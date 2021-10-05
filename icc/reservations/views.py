@@ -20,23 +20,23 @@ from django.contrib import messages
 
 
 # @login_required(login_url='acces')
-def planning_visiteurs(request):
+# def planning_visiteurs(request):
+#
+#     r_jour = Reservation.objects.all().filter(date_heure__date=datetime.date.today()).order_by('date_heure')
+#     r_matin = r_jour.exclude(date_heure__time__gt='12:00:00')
+#     print(r_matin)
+#     for reservation in r_matin:
+#         print(reservation)
+#     r_apresmidi = r_jour.exclude(date_heure__time__lt='12:00:00')
+#
+#     return render(request, 'reservations/planning-visiteurs.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi})
+#
+#
+# def planning_clients(request):
+#     return render(request, 'reservations/planning-clients.html')
 
-    r_jour = Reservation.objects.all().filter(date_heure__date=datetime.date.today()).order_by('date_heure')
-    r_matin = r_jour.exclude(date_heure__time__gt='12:00:00')
-    print(r_matin)
-    for reservation in r_matin:
-        print(reservation)
-    r_apresmidi = r_jour.exclude(date_heure__time__lt='12:00:00')
 
-    return render(request, 'reservations/planning-visiteurs.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi})
-
-
-def planning_clients(request):
-    return render(request, 'reservations/planning-clients.html')
-
-
-def planning_mandante(request):
+def planning(request):
     prestations = Prestation.objects.all()
     ty = Prestation.LONGEUR_CHEVEUX
 
@@ -52,7 +52,7 @@ def planning_mandante(request):
         print(reservation)
     r_apresmidi = r_jour.exclude(date_heure__time__lt='12:00:00')
 
-    return render(request, 'reservations/planning-mandante.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'types': types, 'prestations': prestations})
+    return render(request, 'reservations/planning.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'types': types, 'prestations': prestations})
 
 
 def rendezvous(request):
@@ -64,7 +64,7 @@ def rendezvous(request):
             # rdv.save()
             form.save()
             messages.success(request, "Votre réservation a bien été enregistrée!")
-            return redirect('planning-mandante')
+            return redirect('planning')
     else:
         form = forms.Rendezvous()
     return render(request, 'reservations/reserver.html', {'form': form})

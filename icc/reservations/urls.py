@@ -6,9 +6,9 @@ appname = 'reservations'
 
 
 urlpatterns = [
-    path('planning-visiteurs/', views.planning_visiteurs, name='planning-visiteurs'),
-    path('planning-clients/', views.planning_clients, name='planning-clients'),
-    path('planning-mandante', views.planning_mandante, name='planning-mandante'),
+    # path('planning-visiteurs/', views.planning_visiteurs, name='planning-visiteurs'),
+    # path('planning-clients/', views.planning_clients, name='planning-clients'),
+    path('planning/', views.planning, name='planning'),
 
     path('rendezvous/', views.rendezvous, name='rendezvous'),
 
