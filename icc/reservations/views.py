@@ -19,22 +19,24 @@ from django.contrib import messages
 
 
 def planning(request):
-    prestations = Prestation.objects.all()
-    ty = Prestation.LONGEUR_CHEVEUX
-
-    types = []
-    for t in ty:
-        (_, valeur) = t
-        types.append(valeur)
-
-    r_jour = Reservation.objects.all().filter(date_heure__date=datetime.date.today()).order_by('date_heure')
-    r_matin = r_jour.exclude(date_heure__time__gt='12:00:00')
-    print(r_matin)
-    for reservation in r_matin:
-        print(reservation)
-    r_apresmidi = r_jour.exclude(date_heure__time__lt='12:00:00')
-
-    return render(request, 'reservations/planning.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'types': types, 'prestations': prestations})
+    # prestations = Prestation.objects.all()
+    # ty = Prestation.LONGEUR_CHEVEUX
+    #
+    # types = []
+    # for t in ty:
+    #     (_, valeur) = t
+    #     types.append(valeur)
+    #
+    # r_jour = Reservation.objects.all().filter(date_heure__date=datetime.date.today()).order_by('date_heure')
+    # r_matin = r_jour.exclude(date_heure__time__gt='12:00:00')
+    # print(r_matin)
+    # for reservation in r_matin:
+    #     print(reservation)
+    # r_apresmidi = r_jour.exclude(date_heure__time__lt='12:00:00')
+    #
+    # return render(request, 'reservations/planning.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'types': types, 'prestations': prestations})
+    reservations = Reservation.objects.all().order_by('-date_heure')
+    return render(request, 'reservations/mes-reservations.html', {'reservations': reservations})
 
 
 def test_prestations(request):
@@ -80,6 +82,12 @@ def prestations(request):
 # ESPACE ADMIN
 
 
+# RESERVATIONS
+
+
+# PRESTATIONS
+
+
 def prestations_admin(request):
     prestation = Prestation.objects.all().order_by('nom')
     return render(request, 'reservations/admin/prestations.html', {'prestations': prestation})
@@ -91,7 +99,7 @@ def ajouter_prestation(request):
         form = PrestationForm(request.POST)
         if form.is_valid():
             form.save()
-    return render(request, 'reservations/formulaire/ajouter-prestation.html', {'form': form})
+    return render(request, 'reservations/formulaire/prestation/ajouter-prestation.html', {'form': form})
 
 
 def modifier_prestation(request, id):
@@ -102,7 +110,7 @@ def modifier_prestation(request, id):
         if form.is_valid():
             form.save()
             return redirect('prestations-admin')
-    return render(request, 'reservations/formulaire/modifier-prestation.html', {'form': form})
+    return render(request, 'reservations/formulaire/prestation/modifier-prestation.html', {'form': form})
 
 
 def supprimer_prestation(request, id):
@@ -110,4 +118,4 @@ def supprimer_prestation(request, id):
     if request.method == 'POST':
         prestation.delete()
         return redirect('prestations-admin')
-    return render(request, 'reservations/formulaire/supprimer-prestation.html', {'prestation': prestation})
+    return render(request, 'reservations/formulaire/prestation/supprimer-prestation.html', {'prestation': prestation})

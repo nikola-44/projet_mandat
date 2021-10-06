@@ -1,7 +1,7 @@
 # FERREIRA STOJKOVIC Nikola
 
 from django.forms import ModelForm
-from .models import Reservation, Prestation
+from .models import Prestation, Reservation
 
 
 # class Rendezvous(forms.ModelForm):
@@ -17,4 +17,10 @@ from .models import Reservation, Prestation
 class PrestationForm(ModelForm):
     class Meta:
         model = Prestation
+        fields = '__all__'
+
+
+class ReservationsForm(ModelForm):
+    class Meta:
+        model = Reservation
         fields = '__all__'
