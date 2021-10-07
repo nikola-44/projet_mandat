@@ -19,4 +19,10 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = Client
-        fields = ('nom', 'prenom', 'dateNaissance', 'telephone', 'genre')
+        fields = ('nom', 'prenom', 'dateNaissance', 'telephone', 'genre', 'commentaire')
+
+
+class CommentaireForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = ('commentaire',)
