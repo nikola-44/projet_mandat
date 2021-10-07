@@ -25,19 +25,22 @@
                     <th>Téléphone</th>
                     <th>Email</th>
                     <th>Genre</th>
+                    <th>Mise à Jour</th>
+                    <th>Supprimer</th>
                 </tr>
-{#                				{% for client in clients %}#}
-                <tr>
-                    <th>qwerqw</th>
-                    <th>ds</th>
-                    <th>fd</th>
-                    <th>fd</th>
-                    <th>fd</th>
-                    <th>fd</th>
-                    <th><a class='btn btn-sm btn-dark' href="#">Modifier</a></th>
-                    <th><a class='btn btn-sm btn-danger' href="#">Supprimer</a></th>
-                </tr>
-
+                {% for n in clients %}
+                    <tr>
+                        <th>{{ n.user }}</th>
+                        <th>{{ n.nom }}</th>
+                        <th>{{ n.prenom }}</th>
+                        <th>{{ n.dateNaissance }}</th>
+                        <th>{{ n.telephone }}</th>
+                        <th>{{ n.genre }}</th>
+                        <th><a class='btn btn-sm btn-dark' href="{% url 'clients:modifier_client' n.id %}">Modifier</a></th>
+                        <th><a class='btn btn-sm btn-danger'
+                               href="{% url 'clients:supprimer_client' n.id %}">Supprimer</a></th>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
