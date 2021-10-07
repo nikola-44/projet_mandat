@@ -1,0 +1,12 @@
+{#FERREIRA STOJKOVIC Nikola#}
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <br><br><h3>Etes-vous sur de vouloir supprimer cette prestation ?</h3><br><br>
+    <form action="{% url 'supprimer-prestation' prestation.id %}" method="post">
+        {% csrf_token %}
+        <a class="btn btn-warning" href="{% url 'prestations-admin' %}">Annuler</a>
+        <input class="btn btn-danger" href="{% url 'prestations-admin' %}" type="submit" value="Confirmer">
+    </form>
+{% endblock %}

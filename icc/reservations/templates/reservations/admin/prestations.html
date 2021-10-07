@@ -1,0 +1,38 @@
+{#FERREIRA STOJKOVIC Nikola#}
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{#    <div class="col-md-7">#}
+        <h4>Les prestations</h4>
+        <BR><BR>
+        <div class="card card-body">
+            <a class="btn " style="color: #7FFFD4; background-color: #3d3d3f" href="{% url 'ajouter-prestation' %}">Ajouter une prestation</a><hr>
+            <table class="table table-sm" >
+                <tr>
+                    <th>Nom</th>
+                    <th>Pour</th>
+                    <th>Prix</th>
+                    <th>Durée</th>
+                    <th>Mise à Jour</th>
+                    <th>Supprimer</th>
+                </tr>
+                    {% for prestation in prestations %}
+                <tr>
+                    <th><p>{{ prestation.nom }}</p></th>
+                    <th><p>{{ prestation.pour }}</p></th>
+                    <th><p>{{ prestation.prix }}</p></th>
+                    <th><p>CHF {{ prestation.duree }}</p></th>
+{#                    {% url 'produits:modifier_produit' n.id %}#}
+                    <th><a class='btn btn-sm btn-dark' href="{% url 'modifier-prestation' prestation.id %}">Modifier</a></th>
+{#                    {% url 'produits:supprimer_produit' n.id %}#}
+                    <th><a class='btn btn-sm btn-danger' href="#">Supprimer</a></th>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+
+{% endblock %}

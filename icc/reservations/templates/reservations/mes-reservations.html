@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% now "D d M Y" as aujourdhui %}
+    <div class="container pb-5 page">
+    <div class="row bg-success">
+        <div class="col">
+            <h1>Mes réservations</h1>
+        </div>
+        <div class="col">
+            <a href="#" class="float-end text-white">Réserver</a>
+        </div>
+    </div>
+
+        {% for reservation in reservations %}
+            {% if not reservation.is_past_due %}
+                <div class="row mt-5 mb-5 pb-5 justify-content-center bg-danger">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="float-start">
+                            Réservation du {{ reservation.date_heure.date }}
+                        </h1>
+                    </div>
+                    <div class="col">
+                        <h1 class="float-end">
+                            {{ reservation.date_heure.time }}
+                        </h1>
+                    </div>
+                </div>
+                <div class="row body">
+                    <p>{{ reservation.commentaire }}</p>
+                </div>
+                <div class="row justify-content-end">
+                        <h2 class="col-4 text-end">Total: 20.-</h2>
+                </div>
+                </div>
+                {% else %}
+{#                anciennes réservations à afficher si il clique sur le lien #}
+            {% endif %}
+    {% endfor %}
+        <a href="#">Mes anciens réservations</a>
+    </div>
+{% endblock %}

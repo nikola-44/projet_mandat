@@ -6,13 +6,19 @@ appname = 'reservations'
 
 
 urlpatterns = [
-    path('planning-visiteurs/', views.planning_visiteurs, name='planning-visiteurs'),
-    path('planning-clients/', views.planning_clients, name='planning-clients'),
-    path('planning-mandante', views.planning_mandante, name='planning-mandante'),
+    # path('planning-visiteurs/', views.planning_visiteurs, name='planning-visiteurs'),
+    # path('planning-clients/', views.planning_clients, name='planning-clients'),
+    path('planning/', views.planning, name='planning'),
 
-    path('rendezvous/', views.rendezvous, name='rendezvous'),
+
+    # path('rendezvous/', views.rendezvous, name='rendezvous'),
 
     path('prestations/', views.prestations, name='prestations'),
+    path('admin/prestations/', views.prestations_admin, name='prestations-admin'),
+
+    path('admin/ajouter-prestation/', views.ajouter_prestation, name='ajouter-prestation'),
+    path('admin/modifier-prestation-<int:id>/', views.modifier_prestation, name='modifier-prestation'),
+    path('admin/supprimer-prestation-<int:id>/', views.supprimer_prestation, name='supprimer-prestation'),
     # path('reserver/', views.reserver, name='reserver'),
     # path('test-<int:jour>/', views.test, name='test'),
     path('test-prestations/', views.test_prestations, name='test-prestation'),
