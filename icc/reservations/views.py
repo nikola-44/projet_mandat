@@ -89,7 +89,7 @@ def prestations(request):
 
 
 def prestations_admin(request):
-    prestation = Prestation.objects.all().order_by('nom')
+    prestation = Prestation.objects.all().order_by('nom', 'pour')
     return render(request, 'reservations/admin/prestations.html', {'prestations': prestation})
 
 
@@ -99,6 +99,7 @@ def ajouter_prestation(request):
         form = PrestationForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('prestations-admin')
     return render(request, 'reservations/formulaire/prestation/ajouter-prestation.html', {'form': form})
 
 

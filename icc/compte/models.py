@@ -14,6 +14,5 @@ class Client(models.Model):
     telephone = models.CharField(max_length=12)
     genre = models.CharField(max_length=15)
 
-
-def __str__(self):
-    return self.nom
+    def __str__(self):
+        return self.nom + ' ' + self.prenom

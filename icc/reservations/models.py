@@ -2,6 +2,7 @@
 from datetime import date, datetime
 
 from django.db import models
+from compte.models import Client
 
 # Create your models here.
 
@@ -33,6 +34,7 @@ class Reservation(models.Model):
     date_heure = models.DateTimeField(auto_now_add=False, null=True, blank=True)  # date par défaut aujourd'hui
     commentaire = models.TextField(blank=True, default='')
     prestations = models.ManyToManyField(Prestation, through='ResPres')
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return 'Réservation du ' + self.date_heure.__str__()
