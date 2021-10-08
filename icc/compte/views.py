@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
-from .forms import CreerUtilisateur, ProfileForm
+from .forms import CreerUtilisateur, ProfileForm, CommentaireForm
 from django.contrib import messages
+from .models import Client
 
 
 def inscriptionPage(request):
@@ -49,3 +50,28 @@ def accesPage(request):
 def logoutUser(request):
     logout(request)
     return redirect('accueil')
+
+
+def gererClient(request):
+    clients = Client.objects.all()
+    return render(request, '../templates/gererClients.html', {'clients': clients})
+
+
+def supprimer_client(request, pk):
+    client = Client.objects.get(id=pk)
+    if request.method == 'POST':
+        client.delete()
+        return redirect('/compte/gererClients')
+    context = {'item': client}
+    return render(request, '../templates/supprimer_client.html', context)
+
+
+def modifier_client(request, pk):
+    pi = Client.objects.get(id=pk)
+    commentaire = CommentaireForm(instance=pi)
+    if request.method == 'POST':
+        commentaire = CommentaireForm(request.POST, instance=pi)
+        if commentaire.is_valid():
+            commentaire.save()
+            return redirect('/compte/gererClients')
+    return render(request, '../templates/modifier_client.html', {'commentaire': commentaire})
