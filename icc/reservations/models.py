@@ -1,5 +1,5 @@
 # FERREIRA STOJKOVIC Nikola
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 from django.db import models
 from compte.models import Client
@@ -40,7 +40,7 @@ class Reservation(models.Model):
         return 'Réservation du ' + self.date_heure.__str__()
 
     def is_past_due(self):
-        return date.today() > self.date_heure.date()
+        return datetime.__add__(timedelta(hours=1)) > self.date_heure.date()
 
 
 class ResPres(models.Model):
