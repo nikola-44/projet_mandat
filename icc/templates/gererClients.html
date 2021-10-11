@@ -1,15 +1,8 @@
-{# Zumeri Faton, Châtelain Dorian#}
+{# Dorian Châtelain#}
 {% extends 'base.html' %}
 
 {% block content %}
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Clients</title>
-    </head>
-    <body>
     <h1>Souhaitez-vous ajouter des clients ?</h1><br><br><br>
 
     <div class="col">
@@ -27,24 +20,22 @@
                     <th>Mise à Jour</th>
                     <th>Supprimer</th>
                 </tr>
-                    {% for client in clients %}
-                <tr>
-                    <th>{{client.user}}</th>
-                    <th>{{client.nom}}</th>
-                    <th>{{client.prenom}}</th>
-                    <th>{{client.telephone}}</th>
-                    <th>{{client.genre}}</th>
-                    <th>{{client.commentaire}}</th>
-                    <th><a class='btn btn-sm btn-dark' href="{% url 'modifier_client' client.id %}">Modifier</a></th>
-                    <th><a class='btn btn-sm btn-danger' href="{% url 'supprimer_client' client.id %}">Supprimer</a></th>
-                </tr>
-                    {% endfor %}
+                {% for client in clients %}
+                    <tr>
+                        <th>{{ client.user }}</th>
+                        <th>{{ client.nom }}</th>
+                        <th>{{ client.prenom }}</th>
+                        <th>{{ client.telephone }}</th>
+                        <th>{{ client.genre }}</th>
+                        <th>{{ client.commentaire }}</th>
+                        <th><a class='btn btn-sm btn-dark' href="{% url 'modifier_client' client.id %}">Modifier</a>
+                        </th>
+                        <th><a class='btn btn-sm btn-danger' href="{% url 'supprimer_client' client.id %}">Supprimer</a>
+                        </th>
+                    </tr>
+                {% endfor %}
             </table>
         </div>
     </div>
-
-
-    </body>
-    </html>
 
 {% endblock %}

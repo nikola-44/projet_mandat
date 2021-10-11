@@ -23,3 +23,7 @@ def gererProduits(request):
 
 def gererClients(request):
     return render(request, 'gererClients.html')
+
+
+def gererSalon(request):
+    return render(request, 'gererSalon.html')
