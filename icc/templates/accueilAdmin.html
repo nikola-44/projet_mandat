@@ -25,13 +25,25 @@
             </div>
             <div class="row">
                 <div class="col d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary btn-lg my-5"
-                            onclick="location.href='{% url 'gererClients' %}'">Clients
-                    </button>
+                    <a href="../compte/gererClients/">
+                    <button type="button" class="btn btn-primary btn-lg my-5">Clients
+                    </button></a>
                 </div>
                 <div class="col d-flex justify-content-center">
                     <button type="button" class="btn btn-primary btn-lg my-5"
                             onclick="location.href='{% url 'prestations-admin' %}'">Prestations
+                    </button>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary btn-lg my-5"
+                            onclick="location.href='{% url 'gererSalon' %}'">Salon
+                    </button>
+                </div>
+                <div class="col d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary btn-lg my-5"
+                            onclick="location.href='{% url 'prestations-admin' %}'">Commandes
                     </button>
                 </div>
             </div>
