@@ -28,6 +28,7 @@ urlpatterns = [
     path('reservations/', include('reservations.urls')),
     path('', views.acces),
     path('compte/', include('compte.urls')),
+    path('parametres/', include('parametres.urls')),
     path('contact/', include('contact.urls')),
     path('gererClient/', views.gererClients, name='gererClients'),
     path('gererSalon/', views.gererSalon, name='gererSalon'),
