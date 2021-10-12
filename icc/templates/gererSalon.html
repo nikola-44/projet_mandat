@@ -6,15 +6,20 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>Salon</title>
-    </head>
-    <body>
+    <meta charset="UTF-8">
+    <title>Salon</title>
+
     <h1>Souhaitez-vous modifier des informations sur le salon ?</h1><br><br><br>
 
-
-
-    </body>
-    </html>
+    <div class="row">
+        <div class="col-sm-8 offset-2">
+            <h4 class="alert alert-info">Modifier les informations du salon</h4>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" class="btn btn-success" value="Modifier">
+            </form>
+        </div>
+    </div>
 
 {% endblock %}
