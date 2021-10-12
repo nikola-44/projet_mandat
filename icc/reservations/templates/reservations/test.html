@@ -303,6 +303,45 @@
                                         <input type="time" id="heure" class="form-control">
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="prestations">Coupe: </label>
+                                    <div class="w-50 col float-end">
+                                        <select id="prestations" class="w-100" size="8" multiple>
+
+                                            {% for type in types %}
+                                                {% if forloop.counter == 1 %}
+                                                    <optgroup label="Coupe pour cheveux courts">
+                                                        {% for prestation in prestations %}
+                                                            {% if prestation.pour == 'Courts' %}
+                                                                <option class="float-left"
+                                                                        value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </optgroup>
+                                                {% elif forloop.counter == 2 %}
+                                                    <optgroup label="Coupe pour cheveux longs">
+                                                        {% for prestation in prestations %}
+                                                            {% if prestation.pour == 'Longs' %}
+                                                                <option class="float-left"
+                                                                        value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </optgroup>
+                                                {% elif forloop.counter == 3 %}
+                                                    <optgroup label="Autres coupes">
+                                                        {% for prestation in prestations %}
+                                                            {% if prestation.pour == '/' %}
+                                                                <option class="float-left"
+                                                                        value="{{ prestation.id }}">{{ prestation.nom }}</option>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </optgroup>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <div class="row mb-3">
                                     <div class="col">

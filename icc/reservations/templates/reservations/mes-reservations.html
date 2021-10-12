@@ -1,46 +1,93 @@
 {% extends 'base.html' %}
+{% load template_filters %}
 
 {% block content %}
     {% now "D d M Y" as aujourdhui %}
     <div class="container pb-5 page">
-    <div class="row bg-success">
-        <div class="col">
-            <h1>Mes réservations</h1>
+        <div class="row bg-success">
+            <div class="col">
+                <h1>Mes réservations</h1>
+            </div>
+            <div class="col">
+                <a href="#" class="float-end text-white">Réserver</a>
+            </div>
         </div>
-        <div class="col">
-            <a href="#" class="float-end text-white">Réserver</a>
-        </div>
-    </div>
 
         {% for reservation in reservations %}
             {% if not reservation.is_past_due %}
-                <div class="row mt-5 mb-5 pb-5 justify-content-center bg-danger">
-                <div class="row">
-                    <div class="col">
-                        <h1 class="float-start">
-                            Réservation du {{ reservation.date_heure.date }}
-                        </h1>
+                <div class="row mt-5 mb-5 justify-content-center bg-danger border border-5 border-success">
+                <div class="col text-end border border-5 border-white">
+                X
+                </div>
+                    <div class="row d-flex border border-5 border-warning">
+                        <div class="col w-auto border border-5 border-primary">
+                            <h1 class="float-start">
+                                Réservation du {{ reservation.date_heure.date }}
+                            </h1>
+                        </div>
+                        <div class="col-3 ms-auto border border-5 border-primary">
+                            <h1 class="float-end">
+                                {{ reservation.date_heure.time }}-{{ reservation.heure_fin.astimezone.time }}
+                            </h1>
+                        </div>
                     </div>
-                    <div class="col">
-                        <h1 class="float-end">
-                            {{ reservation.date_heure.time }}
-                        </h1>
+                    <div class="row justify-content-end d-flex border border-5 border-primary">
+                        {#                        <table class="table">#}
+                        {#                            <thead>#}
+                        {#                            <tr>#}
+                        {#                                <th scope="col"></th>#}
+                        {#                                <th scope="col">Prestation</th>#}
+                        {#                                <th scope="col">Pour</th>#}
+                        {#                                <th scope="col">Durée</th>#}
+                        {#                                <th scope="col">Prix</th>#}
+                        {#                            </tr>#}
+                        {#                            </thead>#}
+                        {#                            <tbody>#}
+                        {##}
+                        {% for prestation in reservation.prestations.all %}
+                            {#                            <tr>#}
+                            {#                                <th scope="row">{{ forloop.counter }}</th>#}
+                            {#                                <td>{{ prestation.nom }}</td>#}
+                            {#                                <td>{{ prestation.pour }}</td>#}
+                            {#                                <td>{{ prestation.duree }}</td>#}
+                            {#                                <td>{{ prestation.prix }}</td>#}
+                            {#                            </tr>#}
+                            {#                            </tbody>#}
+                            {#                        </table>#}
+                            <div class="row">
+                                <h3 class="col">{{ prestation.nom }} - {{ prestation.pour }}</h3>
+                                {% if prestation.duree.hour and not prestation.duree.minute %}
+                                    <h3 class="col">{{ prestation.duree.hour }}h.</h3>
+                                {% elif prestation.duree.minute and not prestation.duree.hour %}
+                                    <h3 class="col">{{ prestation.duree.minute }}min.</h3>
+                                {% else %}
+                                    <h3 class="col">{{ prestation.duree.hour }}h.{{ prestation.duree.minute }}min.</h3>
+                                {% endif %}
+                                {#                                {% for ligne in res_pres %}#}
+                                {#                                    {% if ligne.reservation.id == reservation.id and ligne.prestation.id == prestation.id %}#}
+                                {#                                        <h3 class="col">Prix effectif: {{ ligne.prix }}</h3>#}
+                                {#                                        <h3 class="col">Durée effective: {{ ligne.duree_effective }}</h3>#}
+                                {#                                    {% endif %}#}
+                                {#                                {% endfor %}#}
+                            </div>
+                        {% endfor %}
+                        <div class="container bg-warning ps-4" style="height: 150px">
+                            <h2 class="mt-2">Commentaires:</h2>
+                            <h5>
+                                {{ reservation.commentaire }}
+                            </h5>
+                        </div>
+                        {#                        <div class="col align-self-end justify-content-end">#}
                     </div>
+                    <h3 class="col-4 ms-auto">Total: {{ total|lookup:reservation.id }}
+                        CHF</h3>
+                    {#                        </div>#}
                 </div>
-                    <div class="row body">
-                    <p>{{ reservation.client.nom }} {{ reservation.client.prenom }}</p>
-                </div>
-                <div class="row body">
-                    <p>{{ reservation.commentaire }}</p>
-                </div>
-                <div class="row justify-content-end">
-                        <h2 class="col-4 text-end">Total: 20.-</h2>
-                </div>
-                </div>
-                {% else %}
-{#                anciennes réservations à afficher si il clique sur le lien #}
+
+            {% else %}
+                {#                anciennes réservations à afficher si il clique sur le lien #}
             {% endif %}
-    {% endfor %}
+        {% endfor %}
         <a href="#">Mes anciens réservations</a>
     </div>
 {% endblock %}

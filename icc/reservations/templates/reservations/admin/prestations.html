@@ -10,22 +10,24 @@
     <BR><BR>
     <div class="container pb-5">
         <div class="card card-body mb-5">
-        <button type="button" class="btn btn-primary btn-lg" onclick="location.href='{% url 'ajouter-prestation' %}'">Ajouter prestation</button>
-{#            <a class="btn " style="color: #7FFFD4; background-color: #3d3d3f" href="{% url 'ajouter-prestation' %}">Ajouter#}
-{#                une prestation</a>#}
+            <button type="button" class="btn btn-primary btn-lg"
+                    onclick="location.href='{% url 'ajouter-prestation' %}'">Ajouter prestation
+            </button>
+            {#            <a class="btn " style="color: #7FFFD4; background-color: #3d3d3f" href="{% url 'ajouter-prestation' %}">Ajouter#}
+            {#                une prestation</a>#}
             <hr>
 
             <table class="table w-100">
                 <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Pour</th>
-                    <th scope="col">Prix</th>
-                    <th scope="col">Durée</th>
-                    <th scope="col">Mise à jour</th>
-                    <th scope="col">Supprimer</th>
-                </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Pour</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Durée</th>
+                        <th scope="col">Mise à jour</th>
+                        <th scope="col">Supprimer</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {% for prestation in prestations %}

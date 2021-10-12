@@ -8,7 +8,7 @@ from django.dispatch import receiver
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
-from .models import Reservation, Prestation
+from .models import Reservation, Prestation, ResPres
 from .forms import PrestationForm
 from django.contrib import messages
 
@@ -37,6 +37,35 @@ def planning(request):
     # return render(request, 'reservations/planning.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'types': types, 'prestations': prestations})
     reservations = Reservation.objects.all().order_by('-date_heure')
     return render(request, 'reservations/mes-reservations.html', {'reservations': reservations})
+
+
+# @app.route('/reservations/<string:jour>', methods=['GET'])
+def test(request):  # ajouter un paramètre jour
+    prestations = Prestation.objects.all()
+    ty = Prestation.LONGEUR_CHEVEUX
+
+    types = []
+    for t in ty:
+        (_, valeur) = t
+        types.append(valeur)
+    print('Voici les types de cheveux: ' + str(type(types)), types)
+    r_jour = Reservation.objects.all().filter(date_heure=datetime.date.today()).order_by('date_heure')
+    r_matin = r_jour.exclude()
+    r_apresmidi = r_jour.exclude()
+
+    return render(request, 'reservations/test.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'prestations': prestations, 'types': types})
+
+
+def mes_reservations(request):
+    res_pres = ResPres.objects.all()
+    reservations = Reservation.objects.all().order_by('-date_heure')
+    total = {}
+    for reservation in reservations:
+        calcul = 0
+        for prestation in reservation.prestations.all():
+            calcul += prestation.prix
+        total[reservation.id] = calcul
+    return render(request, 'reservations/mes-reservations.html', {'reservations': reservations, 'total': total, 'res_pres': res_pres})
 
 
 def test_prestations(request):
@@ -75,14 +104,14 @@ def test_prestations(request):
     return render(request, 'reservations/test-prestations.html', {'prestations': prestations, 'dico': dico})
 
 
-def prestations(request):
-    return render(request, 'reservations/prestations.html')
-
-
 # ESPACE ADMIN
 
 
 # RESERVATIONS
+
+
+def prestations(request):
+    return render(request, 'reservations/prestations.html')
 
 
 # PRESTATIONS
