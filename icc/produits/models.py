@@ -7,7 +7,8 @@ from django.db import models
 class Produit(models.Model):
     nom = models.CharField(max_length=250)
     type = models.CharField(max_length=250)
-    # image = models.ImageField()
+    categorie = models.CharField(max_length=250)
+    image = models.ImageField()
     capacite = models.IntegerField()
     prix_achat = models.IntegerField()
     prix_vente = models.IntegerField()

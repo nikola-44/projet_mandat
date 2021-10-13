@@ -17,69 +17,77 @@
     <title>{% block title %}Accueil{% endblock %}</title>
 </head>
 <body style="width: 100%; height: 100%;">
-    <nav class="navbar navbar-expand-sm w-100 py-2 navbar-dark" style="background-color: #3d3d3f">
-        <div class="container-fluid">
-            <img src="{% static 'media/logo.jpg' %}" class="img-fluid w-auto" onclick="location.href='{% url 'accueil' %}'" alt="logo"/>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex">
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'produits:home' %}">Produits</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'mes-reservations' %}">Réservations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'prestations' %}">Prestations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #7FFFD4; font-size: 25px;"
-                           href="{% url 'contact' %}">Contact</a>
-                    </li>
+<nav class="navbar navbar-expand-sm w-100 py-2 navbar-dark" style="background-color: #3d3d3f">
+    <div class="container-fluid">
+        <img src="{% static 'media/logo.jpg' %}" class="img-fluid w-auto" onclick="location.href='{% url 'accueil' %}'"
+             alt="logo"/>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'produits:home' %}">Produits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'mes-reservations' %}">Réservations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'prestations' %}">Prestations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #7FFFD4; font-size: 25px;"
+                       href="{% url 'contact' %}">Contact</a>
+                </li>
 
 
-                    <li class="nav-item dropdown ms-lg-auto">
-                        <a class="nav-link dropdown-toggle" style="color: #7FFFD4; font-size: 25px;" href="#"
-                           id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Compte
-                        </a>
-                    
-                        {% if request.user.is_authenticated and not user.is_staff %}
+                <li class="nav-item dropdown ms-lg-auto">
 
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Modifier compte</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="{% url "quitter" %}">Déconnexion</a></li>
-                            </ul>
+{#                    <div class="form-inline my-2 my-lg-0">#}
+                        {#                        <a href="{% url 'cart' %}">#}
+                        <img id="cart-icon" src="{% static 'media/cart.png' %}">
+                        </a><p id="cart-total">0</p>
+{#                    </div>#}
 
-                        {% elif request.user.is_authenticated and user.is_staff %}
+                    <a class="nav-link dropdown-toggle" style="color: #7FFFD4; font-size: 25px; display: inline-block" href="#"
+                       id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Compte
+                    </a>
 
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'accueilAdmin' %}">Admin</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="{% url "quitter" %}">Déconnexion</a></li>
-                            </ul>
+                    {% if request.user.is_authenticated and not user.is_staff %}
 
-                        {% else %}
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'acces' %}">Connexion</a></li>
-                                <li><a class="dropdown-item" href="{% url 'inscription' %}">Inscription</a></li>
-                            </ul>
-                        {% endif %}
-                    </li>
-                </ul>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Modifier compte</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url "quitter" %}">Déconnexion</a></li>
+                        </ul>
 
-            </div>
+                    {% elif request.user.is_authenticated and user.is_staff %}
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'accueilAdmin' %}">Admin</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url "quitter" %}">Déconnexion</a></li>
+                        </ul>
+
+                    {% else %}
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{% url 'acces' %}">Connexion</a></li>
+                            <li><a class="dropdown-item" href="{% url 'inscription' %}">Inscription</a></li>
+                        </ul>
+                    {% endif %}
+                </li>
+            </ul>
+
         </div>
-    </nav>
+    </div>
+</nav>
 
 <br>
 <div class="container main">
@@ -105,7 +113,9 @@
 </body>
 <footer>
     <div>
-        Copyright © 2021 | Catisa coiffure - <a href="https://catisa.pythonanywhere.com/">www.catisa.pythonanywhere.com</a> - Chemin des Prés-Seigneur 27, 1254 Jussy - +41 79 640
+        Copyright © 2021 | Catisa coiffure - <a
+            href="https://catisa.pythonanywhere.com/">www.catisa.pythonanywhere.com</a> - Chemin des Prés-Seigneur 27,
+        1254 Jussy - +41 79 640
         62 00
     </div>
 </footer>

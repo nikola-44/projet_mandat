@@ -6,29 +6,21 @@ from .forms import SalonForm
 from .models import Parametres
 
 
+
 def gererSalon(request):
-    print(Parametres.objects.all())
+    parametres = Parametres.objects.all()
+    return render(request, '../templates/gererSalon.html', {'parametres': parametres})
+
+
+def modifier_salon(request, pk):
     if request.method == 'POST':
-        pi = Parametres.objects.get(id=17)
-        fm = SalonForm(request.POST)
+        pi = Parametres.objects.get(id=pk)
+        fm = SalonForm(request.POST, instance=pi)
         if fm.is_valid():
             fm.save()
-            return redirect('.')
+            return redirect('/parametres/gererSalon')
     else:
-        print(Parametres.objects.all())
-        pi = Parametres.objects.get(id=17)
+        pi = Parametres.objects.get(id=pk)
         fm = SalonForm(instance=pi)
-    return render(request, '../templates/gererSalon.html', {'form': fm})
+    return render(request, '../templates/modifier_salon.html', {'form': fm})
 
-
-# def modifier_produit(request, pk):
-#     if request.method == 'POST':
-#         pi = Produit.objects.get(id=pk)
-#         fm = ProduitForm(request.POST, instance=pi)
-#         if fm.is_valid():
-#             fm.save()
-#             return redirect('/produits/gererProduits')
-#     else:
-#         pi = Produit.objects.get(id=pk)
-#         fm = ProduitForm(instance=pi)
-#     return render(request, '../templates/modifier_produit.html', {'form': fm})
