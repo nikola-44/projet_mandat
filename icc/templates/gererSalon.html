@@ -11,15 +11,19 @@
 
     <h1>Souhaitez-vous modifier des informations sur le salon ?</h1><br><br><br>
 
-    <div class="row">
-        <div class="col-sm-8 offset-2">
-            <h4 class="alert alert-info">Modifier les informations du salon</h4>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" class="btn btn-success" value="Modifier">
-            </form>
-        </div>
-    </div>
 
+    {% for param in parametres %}
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h6>Nom :</h6>{{ param.nomSalon }}</li>
+            <li class="list-group-item"><h6>Téléphone :</h6>{{ param.telephone }}</li>
+            <li class="list-group-item"><h6>Adressse :</h6>{{ param.adresse }}</li>
+            <li class="list-group-item"><h6>Code postal :</h6>{{ param.codePostal }}</li>
+            <li class="list-group-item"><h6>Email :</h6>{{ param.mail }}</li>
+            <li class="list-group-item"><h6>Stock minimal pour la vente :</h6>{{ param.stockMinPVente }}</li>
+            <li class="list-group-item"><h6>Prix de la livraison :</h6>{{ param.prixLivraison }}</li>
+            <li class="list-group-item"><a class='btn btn-sm btn-dark'
+                                           href="{% url 'parametres:modifier_salon' param.id %}">Modifier</a></li>
+        </ul>
+
+    {% endfor %}
 {% endblock %}
