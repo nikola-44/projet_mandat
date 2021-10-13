@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Reservation, Prestation, ResPres
+from compte.models import Client
 from .forms import PrestationForm, ReservationForm
 from django.contrib import messages
 
@@ -102,16 +103,29 @@ def ajouter_reservation(request):
     form = ReservationForm()
     if request.method == 'POST':
         form = ReservationForm(request.POST)
-        form.client = request.user
+        print('print', request.POST)
         if form.is_valid():
-            form.save()
+            temp = form.save(commit=False)
+            temp.client = Client.objects.get(user=request.user)
+            # temp.prestations = Prestation.objects.filter(id=)
+            temp.save()
+            # form.client = Client.objects.get(user=request.user)
+            # form.save()
             return redirect('mes-reservations')
     return render(request, 'reservations/formulaire/reservation/ajouter-reservation.html', {'form': form})
 
 
+def supprimer_reservation(request, id):
+    reservation = Reservation.objects.get(id=id)
+    if request.method == 'POST':
+        reservation.delete()
+        return redirect('mes-reservations')
+    return render(request, 'reservations/formulaire/reservation/supprimer-reservation.html', {'reservation': reservation})
+
+
 def mes_reservations(request):
     res_pres = ResPres.objects.all()
-    reservations = Reservation.objects.all().order_by('-date_heure')
+    reservations = Reservation.objects.all().filter(client__user=request.user).order_by('-date_heure')
     total = {}
     for reservation in reservations:
         calcul = 0

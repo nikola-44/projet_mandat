@@ -1,7 +1,10 @@
 # FERREIRA STOJKOVIC Nikola
+import datetime
+
 from django import forms
 from django.forms import ModelForm, HiddenInput
 from .models import Prestation, Reservation
+from django.contrib.admin.widgets import AdminDateWidget, AdminTimeWidget, AdminSplitDateTime
 
 
 # class Rendezvous(forms.ModelForm):
@@ -32,5 +35,7 @@ class ReservationForm(ModelForm):
         fields = '__all__'
         widgets = {
             'client': HiddenInput(),
-            'date_heure': forms.TextInput(attrs={'class': 'form-control', 'type': 'datetime'}),
+            'commentaire': forms.Textarea(attrs={'class': 'form-control'}),
+            'prestations': forms.SelectMultiple(attrs={'class': 'form-control'}),
+            'date_heure': forms.DateTimeInput(format=datetime.datetime, attrs={'class': 'form-control'})
                    }
