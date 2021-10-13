@@ -47,3 +47,5 @@ def supprimer_produit(request, pk):
         return redirect('/produits/gererProduits')
     context = {'item': produit}
     return render(request, '../templates/supprimer_produit.html', context)
+
+

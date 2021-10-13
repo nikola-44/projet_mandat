@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Reservation, Prestation, ResPres
-from .forms import PrestationForm
+from .forms import PrestationForm, ReservationForm
 from django.contrib import messages
 
 
@@ -56,18 +56,6 @@ def test(request):  # ajouter un paramètre jour
     return render(request, 'reservations/test.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'prestations': prestations, 'types': types})
 
 
-def mes_reservations(request):
-    res_pres = ResPres.objects.all()
-    reservations = Reservation.objects.all().order_by('-date_heure')
-    total = {}
-    for reservation in reservations:
-        calcul = 0
-        for prestation in reservation.prestations.all():
-            calcul += prestation.prix
-        total[reservation.id] = calcul
-    return render(request, 'reservations/mes-reservations.html', {'reservations': reservations, 'total': total, 'res_pres': res_pres})
-
-
 def test_prestations(request):
     prestations = Prestation.objects.all()
 
@@ -110,8 +98,27 @@ def test_prestations(request):
 # RESERVATIONS
 
 
-def prestations(request):
-    return render(request, 'reservations/prestations.html')
+def ajouter_reservation(request):
+    form = ReservationForm()
+    if request.method == 'POST':
+        form = ReservationForm(request.POST)
+        form.client = request.user
+        if form.is_valid():
+            form.save()
+            return redirect('mes-reservations')
+    return render(request, 'reservations/formulaire/reservation/ajouter-reservation.html', {'form': form})
+
+
+def mes_reservations(request):
+    res_pres = ResPres.objects.all()
+    reservations = Reservation.objects.all().order_by('-date_heure')
+    total = {}
+    for reservation in reservations:
+        calcul = 0
+        for prestation in reservation.prestations.all():
+            calcul += prestation.prix
+        total[reservation.id] = calcul
+    return render(request, 'reservations/mes-reservations.html', {'reservations': reservations, 'total': total, 'res_pres': res_pres})
 
 
 # PRESTATIONS
@@ -149,3 +156,7 @@ def supprimer_prestation(request, id):
         prestation.delete()
         return redirect('prestations-admin')
     return render(request, 'reservations/formulaire/prestation/supprimer-prestation.html', {'prestation': prestation})
+
+
+def prestations(request):
+    return render(request, 'reservations/prestations.html')

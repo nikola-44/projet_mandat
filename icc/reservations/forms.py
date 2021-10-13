@@ -1,6 +1,6 @@
 # FERREIRA STOJKOVIC Nikola
 from django import forms
-from django.forms import ModelForm
+from django.forms import ModelForm, HiddenInput
 from .models import Prestation, Reservation
 
 
@@ -26,7 +26,11 @@ class PrestationForm(ModelForm):
         }
 
 
-class ReservationsForm(ModelForm):
+class ReservationForm(ModelForm):
     class Meta:
         model = Reservation
         fields = '__all__'
+        widgets = {
+            'client': HiddenInput(),
+            'date_heure': forms.TextInput(attrs={'class': 'form-control', 'type': 'datetime'}),
+                   }
