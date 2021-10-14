@@ -6,11 +6,11 @@ from django.db import models
 # Create your models here.
 
 class Parametres(models.Model):
-    stockMinPVente = models.IntegerField()
-    prixLivraison = models.IntegerField()
-    telephone = models.IntegerField()
+    stockMinPVente = models.PositiveIntegerField()
+    prixLivraison = models.PositiveIntegerField()
+    telephone = models.CharField(max_length=100)
     adresse = models.CharField(max_length=30)
-    codePostal = models.CharField(max_length=10)
+    codePostal = models.CharField(max_length=15)
     mail = models.CharField(max_length=50)
     nomSalon = models.CharField(max_length=150)
 

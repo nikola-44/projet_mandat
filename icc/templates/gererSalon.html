@@ -12,18 +12,16 @@
     <h1>Souhaitez-vous modifier des informations sur le salon ?</h1><br><br><br>
 
 
-    {% for param in parametres %}
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"><h6>Nom :</h6>{{ param.nomSalon }}</li>
-            <li class="list-group-item"><h6>Téléphone :</h6>{{ param.telephone }}</li>
-            <li class="list-group-item"><h6>Adressse :</h6>{{ param.adresse }}</li>
-            <li class="list-group-item"><h6>Code postal :</h6>{{ param.codePostal }}</li>
-            <li class="list-group-item"><h6>Email :</h6>{{ param.mail }}</li>
-            <li class="list-group-item"><h6>Stock minimal pour la vente :</h6>{{ param.stockMinPVente }}</li>
-            <li class="list-group-item"><h6>Prix de la livraison :</h6>{{ param.prixLivraison }}</li>
+        <ul class="list-group list-group-flush w-25">
+            <li class="list-group-item"><h6>Nom :</h6>{{ parametres.nomSalon }}</li>
+            <li class="list-group-item"><h6>Téléphone :</h6>+{{ parametres.telephone }}</li>
+            <li class="list-group-item"><h6>Adressse :</h6>{{ parametres.adresse }}</li>
+            <li class="list-group-item"><h6>Code postal :</h6>{{ parametres.codePostal }}</li>
+            <li class="list-group-item"><h6>Email :</h6>{{ parametres.mail }}</li>
+            <li class="list-group-item"><h6>Stock minimal pour la vente :</h6>{{ parametres.stockMinPVente }}</li>
+            <li class="list-group-item"><h6>Prix de la livraison :</h6>{{ parametres.prixLivraison }}</li>
             <li class="list-group-item"><a class='btn btn-sm btn-dark'
-                                           href="{% url 'parametres:modifier_salon' param.id %}">Modifier</a></li>
+                                           href="{% url 'parametres:modifier_salon' parametres.id %}">Modifier</a></li>
         </ul>
 
-    {% endfor %}
 {% endblock %}

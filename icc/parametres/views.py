@@ -1,4 +1,4 @@
-# Nikola Stojkovic Dorian Châtelain
+# Dorian Châtelain
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -6,10 +6,8 @@ from .forms import SalonForm
 from .models import Parametres
 
 
-
 def gererSalon(request):
-    parametres = Parametres.objects.all()
-    return render(request, '../templates/gererSalon.html', {'parametres': parametres})
+    return render(request, '../templates/gererSalon.html')
 
 
 def modifier_salon(request, pk):
@@ -23,4 +21,3 @@ def modifier_salon(request, pk):
         pi = Parametres.objects.get(id=pk)
         fm = SalonForm(instance=pi)
     return render(request, '../templates/modifier_salon.html', {'form': fm})
-

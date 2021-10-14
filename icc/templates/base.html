@@ -19,8 +19,9 @@
 <body style="width: 100%; height: 100%;">
 <nav class="navbar navbar-expand-sm w-100 py-2 navbar-dark" style="background-color: #3d3d3f">
     <div class="container-fluid">
-        <img src="{% static 'media/logo.jpg' %}" class="img-fluid w-auto" onclick="location.href='{% url 'accueil' %}'"
-             alt="logo"/>
+        <a href="{% url 'accueil' %}">
+            <img src="{% static 'media/logo.jpg' %}" class="img-fluid w-auto" alt="logo"/>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -45,13 +46,14 @@
 
                 <li class="nav-item dropdown ms-lg-auto">
 
-{#                    <div class="form-inline my-2 my-lg-0">#}
-                        {#                        <a href="{% url 'cart' %}">#}
-                        <img id="cart-icon" src="{% static 'media/cart.png' %}">
-                        </a><p id="cart-total">0</p>
-{#                    </div>#}
+                    {#                    <div class="form-inline my-2 my-lg-0">#}
+                    {#                        <a href="{% url 'cart' %}">#}
+                    <img id="cart-icon" src="{% static 'media/cart.png' %}">
+                    </a><p id="cart-total">0</p>
+                    {#                    </div>#}
 
-                    <a class="nav-link dropdown-toggle" style="color: #7FFFD4; font-size: 25px; display: inline-block" href="#"
+                    <a class="nav-link dropdown-toggle" style="color: #7FFFD4; font-size: 25px; display: inline-block"
+                       href="#"
                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Compte
                     </a>
@@ -111,12 +113,11 @@
 -->
 
 </body>
+
 <footer>
     <div>
-        Copyright © 2021 | Catisa coiffure - <a
-            href="https://catisa.pythonanywhere.com/">www.catisa.pythonanywhere.com</a> - Chemin des Prés-Seigneur 27,
-        1254 Jussy - +41 79 640
-        62 00
+        Copyright © 2021 | {{ parametres.nomSalon }} | {{ parametres.adresse }}, {{ parametres.codePostal }} | + {{ parametres.telephone }}
     </div>
 </footer>
+
 </html>
