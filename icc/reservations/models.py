@@ -40,7 +40,7 @@ class Reservation(models.Model):
         return 'Réservation du ' + self.date_heure.__str__()
 
     def is_past_due(self):
-        return datetime.now().date() > self.date_heure.date()
+        return datetime.now().astimezone() > self.date_heure
 
     def heure_fin(self):
         hf = self.date_heure

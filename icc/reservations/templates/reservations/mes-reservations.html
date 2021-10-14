@@ -5,7 +5,7 @@
     {% now "D d M Y" as aujourdhui %}
     <div class="container pb-5 page">
         <div class="row">
-            <div class="col">
+            <div class="col" id="d">
                 <h1>Mes réservations</h1>
             </div>
             <div class="col">
@@ -104,4 +104,11 @@
         {% endfor %}
         <a href="#">Mes anciens réservations</a>
     </div>
+
+    <script>
+    var b = document.getElementById('d');
+    b.addEventListener('click', function (){
+        document.body.style.backgroundColor = 'red'
+    })
+    </script>
 {% endblock %}

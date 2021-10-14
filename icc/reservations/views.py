@@ -107,10 +107,11 @@ def ajouter_reservation(request):
         if form.is_valid():
             temp = form.save(commit=False)
             temp.client = Client.objects.get(user=request.user)
-            # temp.prestations = Prestation.objects.filter(id=)
             temp.save()
-            # form.client = Client.objects.get(user=request.user)
-            # form.save()
+            print('Temp : ', temp)
+            prestations = request.POST.getlist('prestations')
+            for prestation in prestations:
+                ResPres.objects.create(reservation=temp, prestation=Prestation.objects.get(id=prestation))
             return redirect('mes-reservations')
     return render(request, 'reservations/formulaire/reservation/ajouter-reservation.html', {'form': form})
 
