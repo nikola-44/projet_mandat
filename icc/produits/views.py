@@ -8,7 +8,15 @@ from .models import Produit
 
 
 def home(request):
-    return render(request, 'produits.html')
+    produits = Produit.objects.all()
+    print(produits)
+    context = {'produits': produits}
+    return render(request, 'produits.html', context)
+
+
+def cart(request):
+    context = {}
+    return render(request, 'cart.html', context)
 
 
 def gererProduit(request):
@@ -47,5 +55,3 @@ def supprimer_produit(request, pk):
         return redirect('/produits/gererProduits')
     context = {'item': produit}
     return render(request, '../templates/supprimer_produit.html', context)
-
-

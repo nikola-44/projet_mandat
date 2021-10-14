@@ -17,6 +17,7 @@ urlpatterns = [
     path('admin/prestations/', views.prestations_admin, name='prestations-admin'),
 
     path('ajouter-reservation/', views.ajouter_reservation, name='ajouter-reservation'),
+    path('supprimer-reservation-<int:id>/', views.supprimer_reservation, name='supprimer-reservation'),
     path('mes-reservations/', views.mes_reservations, name='mes-reservations'),
 
     path('admin/ajouter-prestation/', views.ajouter_prestation, name='ajouter-prestation'),
