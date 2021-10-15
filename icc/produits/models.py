@@ -1,8 +1,10 @@
 # Zumeri Faton et Châtelain Dorian
 from django.db import models
+from django.urls import reverse
 
 
 # Create your models here.
+
 
 class Produit(models.Model):
     Categorie_prod = (
@@ -35,16 +37,18 @@ class Produit(models.Model):
         ('Mask', 'Mask'),
         ('Serum', 'Serum'),
     )
-
     nom = models.CharField(max_length=250)
-    type = models.CharField(max_length=250, choices=Type_choix, default='')
-    categorie = models.CharField(max_length=250, choices=Categorie_prod, default='')
-    image = models.ImageField()
-    capacite = models.PositiveIntegerField()
-    prix_achat = models.PositiveIntegerField()
-    prix_vente = models.PositiveIntegerField()
+    type = models.CharField(max_length=250)
+    categorie = models.CharField(max_length=250)
+    image = models.ImageField(null=True, blank=True)
+    capacite = models.IntegerField()
+    prix_achat = models.IntegerField()
+    prix_vente = models.IntegerField()
     statut = models.CharField(max_length=250)
-    quantite = models.PositiveIntegerField()
+    quantite = models.IntegerField()
+
+    def get_absolute_url(self):
+        return reverse('index', args=[str(self.id)])
 
     def __str__(self):
         return self.nom

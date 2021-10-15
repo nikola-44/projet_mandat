@@ -13,26 +13,31 @@
     </head>
     <body>
     <div class="row">
-        {% for prods in produits %}
-        <div class="col-lg-4">
-            <img class="thumbnail" src="{% static 'media/placeholder.png' %}">
-            <div class="box-element product">
-                <h6><strong>{{ prods.nom }}</strong></h6>
-                <hr>
-                <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
-                <a class="btn btn-outline-success" href="#">Aperçu</a>
-                <h4 style="display: inline-block; float: right">{{ prods.prix_vente }}.-</h4>
-            </div>
-        </div>
+        {% for produit in produits %}
+            <p>{{ produit.categorie }}</p>
+            <hr>
+{#            {% if produit.categorie ==  %}#}
+                <div class="col-lg-4">
+                    <img class="thumbnail" src="{% static produit.image.url %}" alt="img">
+                    <div class="box-element product">
+                        <h6><strong>{{ produit.nom }}</strong></h6>
+                        <hr>
+                        <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                        <a class="btn btn-outline-success" href="#">Aperçu</a>
+                        <h4 style="display: inline-block; float: right">{{ produit.prix_vente }}.-</h4>
+                    </div>
+                    </br></br>
+                </div>
+{#            {% endif %}#}
         {% endfor %}
     </div>
 
-{#    {% for prods in produit %}#}
-{##}
-{#        <p>{{ prods.nom }}</p>#}
-{#        <p>{{ prods.prix }}</p>#}
-{##}
-{#    {% endfor %}#}
+    {#    {% for prods in produit %}#}
+    {##}
+    {#        <p>{{ prods.nom }}</p>#}
+    {#        <p>{{ prods.prix }}</p>#}
+    {##}
+    {#    {% endfor %}#}
 
     {#    <h3>Couleurs</h3><hr style="height: 3px">#}
     {#    <div class="row">#}
