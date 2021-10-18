@@ -55,7 +55,7 @@ class Reservation(models.Model):
 class ResPres(models.Model):
     reservation = models.ForeignKey(Reservation, on_delete=models.CASCADE)
     prestation = models.ForeignKey(Prestation, on_delete=models.CASCADE)
-    duree_effective = models.TimeField(blank=True, null=True, default='prestation.duree')
+    duree_effective = models.TimeField(blank=True, null=True, default='00:00')
     prix = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
 
     class Meta:
