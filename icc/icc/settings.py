@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'compte',
     'contact',
     'parametres',
+    'commande',
 ]
 
 MIDDLEWARE = [

@@ -22,7 +22,7 @@
                     <div class="box-element product">
                         <h6><strong>{{ produit.nom }}</strong></h6>
                         <hr>
-                        <button class="btn btn-outline-secondary add-btn">Ajouter au panier</button>
+                        <button data-produit="{{ produit.id }}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Ajouter au panier</button>
                         <a class="btn btn-outline-success" href="#">Aperçu</a>
                         <h4 style="display: inline-block; float: right">{{ produit.prix_vente }}.-</h4>
                     </div>
