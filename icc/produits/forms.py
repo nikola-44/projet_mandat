@@ -13,8 +13,8 @@ class ProduitForm(forms.ModelForm):
         )
         widgets = {
             'nom': forms.TextInput(attrs={'class': 'form-control'}),
-            'type': forms.TextInput(attrs={'class': 'form-control'}),
-            'categorie' : forms.Select(attrs={'class': 'form-control'}),
+            'type': forms.Select(attrs={'class': 'form-control'}),
+            'categorie': forms.Select(attrs={'class': 'form-control'}),
             'capacite': forms.TextInput(attrs={'class': 'form-control', 'type': 'number'}),
             'prix_achat': forms.TextInput(attrs={'class': 'form-control'}),
             'prix_vente': forms.TextInput(attrs={'class': 'form-control'}),
