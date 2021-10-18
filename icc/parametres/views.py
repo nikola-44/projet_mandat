@@ -16,7 +16,7 @@ def modifier_salon(request, pk):
         fm = SalonForm(request.POST, instance=pi)
         if fm.is_valid():
             fm.save()
-            return redirect('/parametres/gererSalon')
+            return redirect('gererSalon')
     else:
         pi = Parametres.objects.get(id=pk)
         fm = SalonForm(instance=pi)

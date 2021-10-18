@@ -20,6 +20,9 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Client
         fields = ('nom', 'prenom', 'dateNaissance', 'telephone', 'genre', 'commentaire')
+        widgets={
+            'telephone': forms.TextInput(attrs={'class': 'form-control', 'type': 'number'}),
+        }
 
 
 class CommentaireForm(forms.ModelForm):
