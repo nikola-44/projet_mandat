@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from .forms import ProduitForm
 from .models import Produit
+from commande.models import *
 from django.http import JsonResponse
 import json
 
@@ -17,7 +18,13 @@ def home(request):
 
 
 def cart(request):
-    context = {}
+    if request.user.is_authenticated:
+        client = request.user.client
+        commande, created = Commande.objects.get_or_create(client=client, complete=False)
+        items = commande.commandeitem_set.all()
+    else:
+        items = []
+    context = {'items': items}
     return render(request, 'cart.html', context)
 
 
