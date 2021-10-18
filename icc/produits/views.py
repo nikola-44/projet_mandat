@@ -2,6 +2,7 @@
 from django.shortcuts import render, redirect
 from .forms import ProduitForm
 from .models import Produit
+from django.views import View
 
 
 # Create your views here.
@@ -55,3 +56,4 @@ def supprimer_produit(request, pk):
         return redirect('/produits/gererProduits')
     context = {'item': produit}
     return render(request, '../templates/supprimer_produit.html', context)
+
