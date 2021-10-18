@@ -3,6 +3,9 @@ from django.shortcuts import render, redirect
 from .forms import ProduitForm
 from .models import Produit
 from django.views import View
+from django.http import JsonResponse
+import json
+
 
 
 # Create your views here.
@@ -18,6 +21,11 @@ def home(request):
 def cart(request):
     context = {}
     return render(request, 'cart.html', context)
+
+
+def checkout(request):
+    context = {}
+    return render(request, 'checkout.html', context)
 
 
 def gererProduit(request):
@@ -56,4 +64,16 @@ def supprimer_produit(request, pk):
         return redirect('/produits/gererProduits')
     context = {'item': produit}
     return render(request, '../templates/supprimer_produit.html', context)
+
+
+def updateItem(request):
+    data = json.loads(request.body)
+    produitId = data['produitId']
+    action = data['action']
+
+    print('Action:', action)
+    print('produitId:', produitId)
+
+    # Produit = Produit.objects.get(id=produitId)
+    return JsonResponse('Item was added', safe=False)
 

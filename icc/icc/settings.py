@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'contact',
     'parametres',
     'payements.apps.PaymentsConfig',
+    'commande',
+
 ]
 
 MIDDLEWARE = [
