@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'compte',
     'contact',
     'parametres',
+    'payements.apps.PaymentsConfig',
     'commande',
+
 ]
 
 MIDDLEWARE = [

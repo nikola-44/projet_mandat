@@ -2,9 +2,11 @@
 from django.shortcuts import render, redirect
 from .forms import ProduitForm
 from .models import Produit
+from django.views import View
 from commande.models import *
 from django.http import JsonResponse
 import json
+
 
 
 # Create your views here.
@@ -81,3 +83,4 @@ def updateItem(request):
 
     # Produit = Produit.objects.get(id=produitId)
     return JsonResponse('Item was added', safe=False)
+
