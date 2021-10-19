@@ -2,7 +2,7 @@
 from django.urls import path
 from . import views
 
-appname = 'reservations'
+# appname = 'reservations'
 
 
 urlpatterns = [
@@ -19,6 +19,7 @@ urlpatterns = [
     path('ajouter-reservation/', views.ajouter_reservation, name='ajouter-reservation'),
     path('supprimer-reservation-<int:id>/', views.supprimer_reservation, name='supprimer-reservation'),
     path('mes-reservations/', views.mes_reservations, name='mes-reservations'),
+    path('reservations/', views.reservations, name='reservations'),
 
     path('admin/ajouter-prestation/', views.ajouter_prestation, name='ajouter-prestation'),
     path('admin/modifier-prestation-<int:id>/', views.modifier_prestation, name='modifier-prestation'),

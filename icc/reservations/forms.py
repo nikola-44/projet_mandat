@@ -37,5 +37,6 @@ class ReservationForm(ModelForm):
             'client': HiddenInput(),
             'commentaire': forms.Textarea(attrs={'class': 'form-control'}),
             'prestations': forms.SelectMultiple(attrs={'class': 'form-control'}),
-            'date_heure.': forms.DateTimeInput(format=datetime.datetime, attrs={'class': 'form-control'})
+            'date_heure__date': forms.DateInput(format=datetime.datetime, attrs={'class': 'form-control'}),
+            'date_heure_time': forms.TimeInput(format=datetime.datetime, attrs={'class': 'form-control'})
                    }
