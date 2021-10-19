@@ -20,14 +20,14 @@ def home(request):
 
 
 def cart(request):
-    if request.user.is_authenticated:
-        client = request.user.client
-        commande, created = Commande.objects.get_or_create(client=client, complete=False)
-        items = commande.commandeitem_set.all()
-    else:
-        items = []
-    context = {'items': items}
-    return render(request, 'cart.html', context)
+    # if request.user.is_authenticated:
+    #     client = request.user.client
+    #     commande, created = Commande.objects.get_or_create(client=client, complete=False)
+    #     items = commande.commandeitem_set.all()
+    # else:
+    #     items = []
+    # context = {'items': items}
+    return render(request, 'cart.html',) #context)
 
 
 def checkout(request):
