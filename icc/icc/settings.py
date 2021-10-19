@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'compte',
     'contact',
     'parametres',
+    'commande',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,7 @@ EMAIL_HOST_PASSWORD = ''
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLIC_KEY = ""
+SRIPE_SECRET_KEY = ""
+STRIPE_WEBHOOK_SECRET = ""
