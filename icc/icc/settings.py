@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'compte',
     'contact',
     'parametres',
-    'payements.apps.PaymentsConfig',
+    'payements.apps.PayementsConfig',
     'commande',
 
 ]
@@ -152,6 +152,8 @@ EMAIL_HOST_PASSWORD = ''
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STRIPE_PUBLIC_KEY = ""
-SRIPE_SECRET_KEY = ""
-STRIPE_WEBHOOK_SECRET = ""
+STRIPE_SECRET_KEY = 'sk_test_51JlrAnGjlTCmjLHDoa5or69Zip3y0bTI5pbDmlu7APx6iBnGTVxSd9PJPJNKedBYVc6qTc7CWew6r4GBCGN4nyHU00B1GnFMXt'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51JlrAnGjlTCmjLHDLlMKgkiSNDLt0mkLZTw6Eh11ag2I7KQJvt6jwHBQ7UYLaRyOrLVJH7dXWK0VZCLsNs5WnKBG00k6JqyIwL'
+
+
