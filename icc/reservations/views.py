@@ -136,6 +136,18 @@ def mes_reservations(request):
     return render(request, 'reservations/mes-reservations.html', {'reservations': reservations, 'total': total, 'res_pres': res_pres})
 
 
+def reservations(request):
+    res_pres = ResPres.objects.all()
+    reservations = Reservation.objects.all().filter(client__user=request.user).order_by('-date_heure')
+    total = {}
+    for reservation in reservations:
+        calcul = 0
+        for prestation in reservation.prestations.all():
+            calcul += prestation.prix
+        total[reservation.id] = calcul
+    return render(request, 'reservations/mes-reservations.html', {'reservations': reservations, 'total': total, 'res_pres': res_pres})
+
+
 # PRESTATIONS
 
 

@@ -6,7 +6,7 @@
     <div class="container pb-5 page">
         <div class="row">
             <div class="col" id="d">
-                <h1>Mes réservations</h1>
+                <h1>Toutes mes réservations</h1>
             </div>
             <div class="col">
                 <a href="{% url 'ajouter-reservation' %}" class="float-end text-white">
@@ -16,7 +16,6 @@
         </div>
 
         {% for reservation in reservations %}
-            {% if not reservation.is_past_due %}
                 <div class="row mt-5 mb-5 justify-content-center border border-5 border-dark">
                     <div class="col text-end py-1">
                         <a href="{% url 'supprimer-reservation' reservation.id %}">
@@ -97,12 +96,14 @@
                         CHF</h3>
                     {#                        </div>#}
                 </div>
-
-            {% else %}
-                {#                anciennes réservations à afficher si il clique sur le lien #}
-            {% endif %}
         {% endfor %}
-        <a href="{%  url 'reservations:reservations' %}">Voir toutes mes réservations</a>
+        <a href="#">Mes anciens réservations</a>
     </div>
 
+    <script>
+    var b = document.getElementById('d');
+    b.addEventListener('click', function (){
+        document.body.style.backgroundColor = 'red'
+    })
+    </script>
 {% endblock %}
