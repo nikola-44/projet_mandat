@@ -145,7 +145,7 @@ def reservations(request):
         for prestation in reservation.prestations.all():
             calcul += prestation.prix
         total[reservation.id] = calcul
-    return render(request, 'reservations/mes-reservations.html', {'reservations': reservations, 'total': total, 'res_pres': res_pres})
+    return render(request, 'reservations/reservations.html', {'reservations': reservations, 'total': total, 'res_pres': res_pres})
 
 
 # PRESTATIONS
