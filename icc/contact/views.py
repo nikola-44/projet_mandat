@@ -17,8 +17,8 @@ def contact(request):
         send_mail(
             nom,
             message,
-            mail,
-            [settings.EMAIL_HOST_USER],
+            settings.EMAIL_HOST_USER, # FROM
+            [mail], # TO
             fail_silently = False
         )
         # contact.save()
