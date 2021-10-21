@@ -10,7 +10,7 @@
                 <form id="form">
                     <div id="user-info">
                         <div class="form-field">
-                            <input required class="form-control" type="text" name="name" placeholder="Name..">
+                            <input required class="form-control" type="text" name="name" placeholder="Nom..">
                         </div>
                         <div class="form-field">
                             <input required class="form-control" type="email" name="email" placeholder="Email..">
@@ -19,43 +19,32 @@
 
                     <div id="shipping-info">
                         <hr>
-                        <p>Shipping Information:</p>
+                        <p>Informations sur la livraison:</p>
                         <hr>
                         <div class="form-field">
-                            <input class="form-control" type="text" name="address" placeholder="Address..">
+                            <input class="form-control" type="text" name="address" placeholder="Adresse..">
                         </div>
                         <div class="form-field">
-                            <input class="form-control" type="text" name="city" placeholder="City..">
+                            <input class="form-control" type="text" name="city" placeholder="Ville..">
                         </div>
                         <div class="form-field">
-                            <input class="form-control" type="text" name="state" placeholder="State..">
+                            <input class="form-control" type="text" name="state" placeholder="Pays..">
                         </div>
                         <div class="form-field">
-                            <input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
+                            <input class="form-control" type="text" name="zipcode" placeholder="Code postal..">
                         </div>
-                        <div class="form-field">
-                            <input class="form-control" type="text" name="country" placeholder="Zip code..">
-                        </div>
-                    </div>
-
-                    <hr>
-                    <button id="form-button" class="btn btn-success btn-block" type="submit" value="Continue">Continue
-                    </button>
+                    </div><br>
                 </form>
             </div>
 
-            <br>
-            <div class="box-element hidden" id="payment-info">
-                <small>Paypal Options</small>
-            </div>
 
         </div>
 
         <div class="col-lg-6">
             <div class="box-element">
-                <a class="btn btn-outline-dark" href="{% url 'produits:cart' %}">&#x2190; Back to Cart</a>
+                <a class="btn btn-outline-dark" href="{% url 'produits:cart' %}">&#x2190; Retour au panier</a>
                 <hr>
-                <h3>Order Summary</h3>
+                <h3>Récapitulatif de la commande</h3>
                 <hr>
                 {% for item in items %}
                     <div class="cart-row">
@@ -66,7 +55,7 @@
                     </div>
                 {% endfor %}
 
-                <h5>Items: {{ commande.get_cart_items }}</h5>
+                <h5>Produits: {{ commande.get_cart_items }}</h5>
                 <h5>Total: {{ commande.get_cart_total }}.-</h5>
                 <form action="{% url 'charge' %}" method="post">
                     {% csrf_token %}

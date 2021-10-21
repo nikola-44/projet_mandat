@@ -1,3 +1,4 @@
+# Zumeri Faton
 {% extends 'base.html' %}
 {% block title %}Panier{% endblock %}
 {% load static %}
@@ -8,13 +9,13 @@
         <div class="col-lg-12">
             <div class="box-element">
 
-                <a class="btn btn-outline-dark" href="{% url 'produits:home' %}">&#x2190; Continue Shopping</a>
+                <a class="btn btn-outline-dark" href="{% url 'produits:home' %}">&#x2190; Continuer mes achats</a>
 
                 <br>
                 <br>
                 <table class="table">
                     <tr>
-                        <th><h5>Items: <strong>{{ commande.get_cart_items }}</strong></h5></th>
+                        <th><h5>Produits: <strong>{{ commande.get_cart_items }}</strong></h5></th>
                         <th><h5>Total:<strong> {{ commande.get_cart_total }}.-</strong></h5></th>
                         <th>
                             <a style="float: right; margin-right: 5px" class="btn btn-success"

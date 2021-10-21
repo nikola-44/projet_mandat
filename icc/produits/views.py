@@ -9,10 +9,6 @@ from django.http import JsonResponse
 import json
 
 
-# from django.conf import settings
-# from django.views.generic import TemplateView
-
-
 # Create your views here.
 
 
