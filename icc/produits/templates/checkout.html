@@ -65,7 +65,7 @@
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                             data-key="{{ key }}"
                             data-description="Payements Gateway"
-                            data-amount="500"
+                            data-amount={% widthratio commande.get_cart_total 1 100 %}
                             data-locale="auto">
                     </script>
                 </form>

@@ -18,11 +18,11 @@
             <th><i><u>Téléphone</u></i></th>
         </tr>
         <tr>
-            <td style="padding-top: 15px">Cristina Coiffure Jussy</td>
-            <td style="padding-top: 15px">(+41) 079 640 62 00</td>
+            <td style="padding-top: 15px">{{ parametres.nomSalon }}</td>
+            <td style="padding-top: 15px">+{{ parametres.telephone }}</td>
         </tr>
         <tr>
-            <td>Chemin des Prés-Seigneur 27 <br> 1254 Jussy</td>
+            <td>{{ parametres.adresse }} <br> {{ parametres.codePostal }}</td>
             <td></td>
         </tr>
     </table>
@@ -52,6 +52,6 @@
 
     <br><br>
     </body>
-    </html>
+    </html><br><br><br>
 
 {% endblock %}
