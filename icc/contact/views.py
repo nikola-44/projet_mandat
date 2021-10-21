@@ -4,7 +4,6 @@ from .models import Contact
 from django.http import HttpResponse
 from django.core.mail import send_mail
 
-
 # Create your views here.
 from django.conf import settings
 
@@ -17,9 +16,9 @@ def contact(request):
         send_mail(
             nom,
             message,
-            settings.EMAIL_HOST_USER, # FROM
-            [mail], # TO
-            fail_silently = False
+            settings.EMAIL_HOST_USER,  # FROM
+            [mail],  # TO
+            fail_silently=False
         )
         # contact.save()
         # form = request.POST

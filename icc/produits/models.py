@@ -50,5 +50,13 @@ class Produit(models.Model):
     def get_absolute_url(self):
         return reverse('index', args=[str(self.id)])
 
+    # @property
+    # def imageURL(self):
+    #     try:
+    #         url = self.image.url
+    #     except:
+    #         url = ''
+    #     return url
+
     def __str__(self):
         return self.nom
