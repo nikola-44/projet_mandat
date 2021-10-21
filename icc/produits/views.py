@@ -7,31 +7,44 @@ from django.views import View
 from commande.models import *
 from django.http import JsonResponse
 import json
+
+
 # from django.conf import settings
 # from django.views.generic import TemplateView
-
 
 
 # Create your views here.
 
 
 def home(request):
-    produits = Produit.objects.all()
-    print(produits)
-    context = {'produits': produits}
-    return render(request, 'produits.html', context)
-
-
-def cart(request):
-
     if request.user.is_authenticated:
         client = request.user.client
         commande, created = Commande.objects.get_or_create(client=client, complete=False)
         items = commande.commandeitem_set.all()
+        cartItems = commande.get_cart_items
     else:
         items = []
         commande = {'get_cart_total': 0, 'get_cart_items': 0}
-    context = {'items': items, 'commande': commande}
+        cartItems = commande['get_cart_items']
+
+    produits = Produit.objects.all()
+    print(produits)
+    context = {'produits': produits, 'cartItems': cartItems}
+    return render(request, 'produits.html', context)
+
+
+def cart(request):
+    if request.user.is_authenticated:
+        client = request.user.client
+        commande, created = Commande.objects.get_or_create(client=client, complete=False)
+        items = commande.commandeitem_set.all()
+        cartItems = commande.get_cart_items
+    else:
+        items = []
+        commande = {'get_cart_total': 0, 'get_cart_items': 0}
+        cartItems = commande['get_cart_items']
+
+    context = {'items': items, 'commande': commande, 'cartItems': cartItems}
     # print(items)
     # print(client)
     # print(commande)
@@ -39,7 +52,18 @@ def cart(request):
 
 
 def checkout(request):
-    context = {}
+    if request.user.is_authenticated:
+        client = request.user.client
+        commande, created = Commande.objects.get_or_create(client=client, complete=False)
+        items = commande.commandeitem_set.all()
+        cartItems = commande.get_cart_items
+    else:
+        items = []
+        commande = {'get_cart_total': 0, 'get_cart_items': 0}
+        cartItems = commande['get_cart_items']
+
+    context = {'items': items, 'commande': commande, 'cartItems': cartItems}
+    # context = {}
     if request.method == 'POST':
         return redirect('../landing.html', id=2)
     return render(request, 'checkout.html', context)
@@ -91,10 +115,23 @@ def updateItem(request):
     print('Action:', action)
     print('produitId:', produitId)
 
-    # Produit = Produit.objects.get(id=produitId)
+    client = request.user.client
+    produit = Produit.objects.get(id=produitId)
+    commande, created = Commande.objects.get_or_create(client=client, complete=False)
+
+    commandeItem, created = CommandeItem.objects.get_or_create(commande=commande, produit=produit)
+
+    if action == 'add':
+        commandeItem.quantite = (commandeItem.quantite + 1)
+    elif action == 'remove':
+        commandeItem.quantite = (commandeItem.quantite - 1)
+
+    commandeItem.save()
+
+    if commandeItem.quantite <= 0:
+        commandeItem.delete()
+
     return JsonResponse('Item was added', safe=False)
-
-
 
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 #
@@ -128,4 +165,3 @@ def updateItem(request):
 #         return JsonResponse({
 #             'id': checkout_session.id
 #         })
-

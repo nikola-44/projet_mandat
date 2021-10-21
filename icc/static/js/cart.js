@@ -1,4 +1,5 @@
-console.log('Hellow world')
+// Zumeri Faton
+// console.log('Hello world')
 
 var updateBtns = document.getElementsByClassName('update-cart')
 
@@ -37,6 +38,7 @@ function updateUserOrder(produitId, action) {
 
         .then((data) => {
             console.log('data:', data)
+            location.reload()
         })
 
 }
