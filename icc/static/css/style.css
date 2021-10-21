@@ -10,9 +10,9 @@ main {
 }
 
 footer {
-    position: fixed;
+    /*position: fixed;*/
     float: left;
-    /*position: page;*/
+    position: page;
     left: 0;
     bottom: 0;
     width: 100%;
