@@ -16,12 +16,29 @@ class Commande(models.Model):
     def __str__(self):
         return str(self.id)
 
+    @property
+    def get_cart_total(self):
+        commandeitems = self.commandeitem_set.all()
+        total = sum([item.get_total for item in commandeitems])
+        return total
+
+    @property
+    def get_cart_items(self):
+        commandeitems = self.commandeitem_set.all()
+        total = sum([item.quantite for item in commandeitems])
+        return total
+
 
 class CommandeItem(models.Model):
     produit = models.ForeignKey(Produit, on_delete=models.SET_NULL, blank=True, null=True)
     commande = models.ForeignKey(Commande, on_delete=models.SET_NULL, blank=True, null=True)
     quantite = models.IntegerField(default=0, null=True, blank=True)
     date_ajoute = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def get_total(self):
+        total = self.produit.prix_vente * self.quantite
+        return total
 
 
 class AdresseCommande(models.Model):

@@ -12,7 +12,6 @@ import json
 
 
 
-
 # Create your views here.
 
 
@@ -24,14 +23,19 @@ def home(request):
 
 
 def cart(request):
-    # if request.user.is_authenticated:
-    #     client = request.user.client
-    #     commande, created = Commande.objects.get_or_create(client=client, complete=False)
-    #     items = commande.commandeitem_set.all()
-    # else:
-    #     items = []
-    # context = {'items': items}
-    return render(request, 'cart.html',) #context)
+
+    if request.user.is_authenticated:
+        client = request.user.client
+        commande, created = Commande.objects.get_or_create(client=client, complete=False)
+        items = commande.commandeitem_set.all()
+    else:
+        items = []
+        commande = {'get_cart_total': 0, 'get_cart_items': 0}
+    context = {'items': items, 'commande': commande}
+    # print(items)
+    # print(client)
+    # print(commande)
+    return render(request, 'cart.html', context)
 
 
 def checkout(request):
@@ -91,6 +95,7 @@ def updateItem(request):
     return JsonResponse('Item was added', safe=False)
 
 
+
 # stripe.api_key = settings.STRIPE_SECRET_KEY
 #
 #
@@ -123,3 +128,4 @@ def updateItem(request):
 #         return JsonResponse({
 #             'id': checkout_session.id
 #         })
+
