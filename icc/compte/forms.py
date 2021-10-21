@@ -25,7 +25,26 @@ class ProfileForm(forms.ModelForm):
         }
 
 
+class ProfileModifierForm(forms.ModelForm):
+    dateNaissance = forms.DateField(label='dateNaissance', widget=forms.DateInput(attrs={
+        'class': 'form-control',
+        'type': 'date',
+    }))
+
+    class Meta:
+        model = Client
+        fields = ('nom', 'prenom', 'dateNaissance', 'telephone', 'genre')
+        widgets = {
+            'nom': forms.TextInput(attrs={'class': 'form-control'}),
+            'prenom': forms.TextInput(attrs={'class': 'form-control'}),
+            'dateNaissance': forms.TextInput(attrs={'class': 'form-control', 'value': Client.dateNaissance}),
+            'telephone': forms.TextInput(attrs={'class': 'form-control', 'type': 'number'}),
+            'genre': forms.Select(attrs={'class': 'form-control'}, choices=Client.GENRES),
+        }
+
+
 class CommentaireForm(forms.ModelForm):
     class Meta:
         model = Client
         fields = ('commentaire',)
+

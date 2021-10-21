@@ -38,8 +38,8 @@ class Produit(models.Model):
         ('Serum', 'Serum'),
     )
     nom = models.CharField(max_length=250)
-    type = models.CharField(max_length=250)
-    categorie = models.CharField(max_length=250)
+    type = models.CharField(max_length=250, choices=Type_choix)
+    categorie = models.CharField(max_length=250, choices=Categorie_prod)
     image = models.ImageField(null=True, blank=True)
     capacite = models.IntegerField()
     prix_achat = models.IntegerField(default=0) #centimes
