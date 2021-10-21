@@ -3,7 +3,7 @@ from .models import Contact
 
 
 # Create your forms here.
-class Contact(forms.Form):
-    name = forms.CharField(max_length=50)
-    email_address = forms.EmailField(max_length=150)
-    message = forms.CharField(widget=forms.Textarea, max_length=2000)
+class ContactForm(forms.Form):
+    nom = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), max_length=50)
+    adresse_email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control'}), max_length=150)
+    message = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}), max_length=2000)
