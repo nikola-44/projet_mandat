@@ -8,6 +8,7 @@ from django.contrib import messages
 from .models import Client
 
 
+
 def inscriptionPage(request):
     form = CreerUtilisateur()
     profile_form = ProfileForm()
@@ -65,7 +66,7 @@ def supprimer_client(request, pk):
     context = {'item': client}
     return render(request, '../templates/supprimer_client.html', context)
 
-
+# partie admin
 def modifier_client(request, pk):
     pi = Client.objects.get(id=pk)
     commentaire = CommentaireForm(instance=pi)
@@ -75,3 +76,7 @@ def modifier_client(request, pk):
             commentaire.save()
             return redirect('/compte/gererClients')
     return render(request, '../templates/modifier_client.html', {'commentaire': commentaire})
+
+# partie client
+
+

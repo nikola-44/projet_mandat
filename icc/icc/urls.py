@@ -15,8 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
 from . import views
+# from produits.views import (
+#     CreateCheckoutSessionView,
+#     ProductLandingPageView
+# )
+
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +40,8 @@ urlpatterns = [
     path('gererClient/', views.gererClients, name='gererClients'),
     path('gererSalon/', views.gererSalon, name='gererSalon'),
     path('', include('payements.urls')),
+    # path('produits/', ProductLandingPageView.as_view(), name='Landing-page'),
+    # path('create-checkout-session/', CreateCheckoutSessionView.as_view(),name='create-checkout-session'),
 
 ]
 

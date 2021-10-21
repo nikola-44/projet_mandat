@@ -12,5 +12,5 @@ urlpatterns = [
     path('gererClients/', views.gererClient, name='gererClient'),
     path('<str:pk>/', views.modifier_client, name='modifier_client'),
     path('supprimer_client/<str:pk>', views.supprimer_client, name='supprimer_client'),
-
+    # path('profile/', views.profile, name='profile'),
 ]

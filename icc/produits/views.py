@@ -1,4 +1,5 @@
 # Zumeri Faton et Châtelain Dorian
+import stripe
 from django.shortcuts import render, redirect
 from .forms import ProduitForm
 from .models import Produit
@@ -6,6 +7,9 @@ from django.views import View
 from commande.models import *
 from django.http import JsonResponse
 import json
+# from django.conf import settings
+# from django.views.generic import TemplateView
+
 
 
 
@@ -32,6 +36,8 @@ def cart(request):
 
 def checkout(request):
     context = {}
+    if request.method == 'POST':
+        return redirect('../landing.html', id=2)
     return render(request, 'checkout.html', context)
 
 
@@ -84,3 +90,36 @@ def updateItem(request):
     # Produit = Produit.objects.get(id=produitId)
     return JsonResponse('Item was added', safe=False)
 
+
+# stripe.api_key = settings.STRIPE_SECRET_KEY
+#
+#
+# class ProductLandingPageView(TemplateView):
+#     template_name = "landing.html"
+#
+#
+#
+# class CreateCheckoutSessionView(View):
+#     def post(self, request, *args, **kwargs):
+#         YOUR_DOMAIN = "http://127.0.0.1:8000/"
+#         checkout_session = stripe.checkout.Session.create(
+#             payment_method_types=['card'],
+#             line_items=[
+#                 {
+#                     'price_data': {
+#                         'currency': 'usd',
+#                         'unit_amount': 2000,
+#                         'product_data': {
+#                             'name': 'Stubborn Attachements'
+#                         },
+#                     },
+#                     'quantity': 1,
+#                 },
+#             ],
+#             mode='payment',
+#             success_url=YOUR_DOMAIN + '/success/',
+#             cancel_url=YOUR_DOMAIN + '/cancel/',
+#         )
+#         return JsonResponse({
+#             'id': checkout_session.id
+#         })
