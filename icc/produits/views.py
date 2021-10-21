@@ -25,7 +25,7 @@ def home(request):
 
     produits = Produit.objects.all()
     print(produits)
-    context = {'produits': produits, 'cartItems': cartItems}
+    context = {'produits': produits, 'cartItems': cartItems, 'categorie': Produit.Categorie_prod}
     return render(request, 'produits.html', context)
 
 
