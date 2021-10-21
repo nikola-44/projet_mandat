@@ -15,8 +15,8 @@ def contact(request):
         if form.is_valid():
             subject = "Message de la part d'un client"
             body = {
-            'name': form.cleaned_data['name'],
-            'email_address': form.cleaned_data['email_address'],
+            'name': form.cleaned_data['nom'],
+            'email_address': form.cleaned_data['adresse_email'],
             'message':form.cleaned_data['message'],
             }
             message = "\n".join(body.values())
