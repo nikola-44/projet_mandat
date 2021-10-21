@@ -7,12 +7,17 @@ from django.contrib.auth.models import User
 
 
 class Client(models.Model):
+    GENRES = (
+        ('Homme', 'Homme'),
+        ('Femme', 'Femme'),
+        ('Autre', 'Autre')
+    )
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='client')
     nom = models.CharField(max_length=100)
     prenom = models.CharField(max_length=100)
     dateNaissance = models.DateField()
     telephone = models.CharField(max_length=12)
-    genre = models.CharField(max_length=15)
+    genre = models.CharField(max_length=15, choices=GENRES)
     commentaire = models.CharField(max_length=150, default='', blank=True)
 
     def __str__(self):

@@ -83,7 +83,7 @@
                     {% if request.user.is_authenticated and not user.is_staff %}
 
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Modifier compte</a></li>
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">Modifier compte</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

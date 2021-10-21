@@ -3,10 +3,10 @@ from django.contrib.auth import authenticate, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
-from .forms import CreerUtilisateur, ProfileForm, CommentaireForm
+from .forms import CreerUtilisateur, ProfileForm, CommentaireForm, ProfileModifierForm
 from django.contrib import messages
 from .models import Client
-
+from django.contrib.auth.models import User
 
 
 def inscriptionPage(request):
@@ -66,6 +66,7 @@ def supprimer_client(request, pk):
     context = {'item': client}
     return render(request, '../templates/supprimer_client.html', context)
 
+
 # partie admin
 def modifier_client(request, pk):
     pi = Client.objects.get(id=pk)
@@ -77,6 +78,19 @@ def modifier_client(request, pk):
             return redirect('/compte/gererClients')
     return render(request, '../templates/modifier_client.html', {'commentaire': commentaire})
 
+
 # partie client
-
-
+def profile(request):
+    if request.method == 'POST':
+        form = ProfileModifierForm(request.POST, instance=request.user.client)
+        print(request.user.client)
+        if form.is_valid():
+            form.dateNaissance.widget.value_from_datadict(request.user.client.dateNaissance)
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileModifierForm(instance=request.user.client)
+    context = {
+        'form': form,
+    }
+    return render(request, '../templates/profile.html', context)
