@@ -140,7 +140,7 @@ def mes_reservations(request):
 
 def reservations(request):
     res_pres = ResPres.objects.all()
-    reservations = Reservation.objects.all().filter(client__user=request.user).order_by('-date_heure')
+    reservations = Reservation.objects.all().filter(client__user=request.user).order_by('date')
     total = {}
     for reservation in reservations:
         calcul = 0
