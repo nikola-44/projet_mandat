@@ -28,14 +28,15 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <a href="{% url 'produits:home' %}"><img src="{% static 'media/produit-lakme.png' %}"
-                                                    class="d-block w-100 carousel"></a>
+                                                         class="d-block w-100 carousel"></a>
             </div>
             <div class="carousel-item">
-                <a href="{% url 'prestations' %}"><img src="{% static 'media/lissage-bresil.png' %}" class="d-block w-100 carousel"></a>
+                <a href="{% url 'prestations' %}"><img src="{% static 'media/lissage-bresil.png' %}"
+                                                       class="d-block w-100 carousel"></a>
             </div>
             <div class="carousel-item">
                 <a href="{% url 'produits:home' %}"><img src="{% static 'media/lakme-organic.jpg' %}"
-                                                    class="d-block w-100 carousel"></a>
+                                                         class="d-block w-100 carousel"></a>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -54,46 +55,67 @@
     <div class="mid-text">
 
         <div class="titre-mid">
-            Love is in the air
-        </div><br><br><br>
+            Love is in the hair
+        </div>
+        <br><br><br>
 
         <div class="coiffure">
             Envie de changement ?
             Catisa vous propose des rendez-vous en ligne !
-            Cliquez <button type="button" class="boutonRes"
-                            onclick="location.href='{% url 'reservations' %}'">ici
-                    </button> pour plus d'informations.
-        </div><br><br><br>
+            Cliquez
+            {% if request.user.is_authenticated %}
+                <button type="button" class="boutonRes"
+                        onclick="location.href='{% url 'reservations' %}'">ici
+                </button>
+            {% elif not request.user.is_authenticated %}
+                <button type="button" class="boutonRes"
+                        onclick="location.href='{% url 'acces' %}'">ici
+                </button>
+
+            {% endif %}
+            pour plus d'informations.
+        </div>
+        <br><br><br>
 
         <div class="prestations">
-            Si vous souhaitez connaître les prix de toutes nos prestations, cliquez <button type="button" class="boutonRes"
-                            onclick="location.href='{% url 'prestations' %}'">ici
-                    </button> pour plus de détails.
-        </div><br><br><br>
+            Si vous souhaitez connaître les prix de toutes nos prestations, cliquez
+            <button type="button" class="boutonRes"
+                    onclick="location.href='{% url 'prestations' %}'">ici
+            </button>
+            pour plus de détails.
+        </div>
+        <br><br><br>
 
         <div class="prestations">
-            Vous voulez de tout nouveaux produits ? Rendez-vous sur la page <button type="button" class="boutonRes"
-                            onclick="location.href='{% url 'produits:home' %}'"> produits
-                    </button> !
-        </div><br><br><br>
+            Vous voulez de tout nouveaux produits ? Rendez-vous sur la page
+            <button type="button" class="boutonRes"
+                    onclick="location.href='{% url 'produits:home' %}'"> produits
+            </button>
+            !
+        </div>
+        <br><br><br>
 
-    </div><br><br><br><br><br>
+    </div>
+    <br><br><br><br><br>
 
     <div class="bas-text"><br><br>
 
         <div class="titre-mid">
             Des questions ?
-        </div><br>
+        </div>
+        <br>
 
         <div class="contact">
-            Rendez-vous sur la page <button type="button" class="boutonCont"
-                            onclick="location.href='{% url 'contact' %}'">contact
-                    </button> .
-        </div><br><br>
-    </div>
+            Rendez-vous sur la page
+            <button type="button" class="boutonCont"
+                    onclick="location.href='{% url 'contact' %}'">contact
+            </button>
+            .
+        </div>
+        <br><br>
+    </div><br>
 
     </body>
     </html>
-    <br><br><br><br><br><br><br><br><br><br><br><br>
 
 {% endblock %}
