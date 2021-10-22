@@ -53,9 +53,11 @@
                 <li class="nav-item">
                     <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'produits:home' %}">Produits</a>
                 </li>
+            {% if request.user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'mes-reservations' %}">Réservations</a>
                 </li>
+            {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" style="color: #7FFFD4; font-size: 25px;" href="{% url 'prestations' %}">Prestations</a>
                 </li>

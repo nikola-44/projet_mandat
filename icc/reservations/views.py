@@ -36,7 +36,7 @@ def planning(request):
     # r_apresmidi = r_jour.exclude(date_heure__time__lt='12:00:00')
     #
     # return render(request, 'reservations/planning.html', {'r_matin': r_matin, 'r_apresmidi': r_apresmidi, 'types': types, 'prestations': prestations})
-    reservations = Reservation.objects.all().order_by('-date_heure')
+    reservations = Reservation.objects.all().order_by('-date').order_by('-heure')
     return render(request, 'reservations/mes-reservations.html', {'reservations': reservations})
 
 
@@ -50,7 +50,9 @@ def test(request):  # ajouter un paramètre jour
         (_, valeur) = t
         types.append(valeur)
     print('Voici les types de cheveux: ' + str(type(types)), types)
-    r_jour = Reservation.objects.all().filter(date_heure=datetime.date.today()).order_by('date_heure')
+    r_jour = Reservation.objects.all().filter(date=datetime.date.today()).order_by('date').order_by('heure')
+    print(type(r_jour))
+    # r_jour.filter(heure=datetime.date.today()).order_by('heure')
     r_matin = r_jour.exclude()
     r_apresmidi = r_jour.exclude()
 
@@ -126,7 +128,7 @@ def supprimer_reservation(request, id):
 
 def mes_reservations(request):
     res_pres = ResPres.objects.all()
-    reservations = Reservation.objects.all().filter(client__user=request.user).order_by('-date_heure')
+    reservations = Reservation.objects.all().filter(client__user=request.user).order_by('-date')
     total = {}
     for reservation in reservations:
         calcul = 0

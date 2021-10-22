@@ -13,6 +13,9 @@
     </head>
     <body>
     <h1 class="titreAccueil">Cristina Coiffure</h1><br><br>
+    {% if not request.user.is_authenticated %}
+        <h2>Veuillez vous conectez pour prendre rendez-vous et pour commander des produits.</h2>
+    {% endif %}
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
