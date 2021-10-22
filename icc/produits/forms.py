@@ -6,7 +6,7 @@ from .models import Produit
 class ProduitForm(forms.ModelForm):
     class Meta:
         model = Produit
-        fields = ['nom', 'type', 'categorie', 'capacite', 'prix_achat', 'prix_vente', 'statut', 'quantite']
+        fields = ['nom', 'type', 'categorie', 'image', 'capacite', 'prix_achat', 'prix_vente', 'statut', 'quantite']
         choix = (
             ("En vente", "En vente"),
             ("Pas en vente", "Pas en vente"),
@@ -15,6 +15,7 @@ class ProduitForm(forms.ModelForm):
             'nom': forms.TextInput(attrs={'class': 'form-control'}),
             'type': forms.Select(attrs={'class': 'form-control'}),
             'categorie': forms.Select(attrs={'class': 'form-control'}),
+            # 'image': forms.ImageField(attrs={'class': 'form-control'}),
             'capacite': forms.TextInput(attrs={'class': 'form-control', 'type': 'number'}),
             'prix_achat': forms.TextInput(attrs={'class': 'form-control'}),
             'prix_vente': forms.TextInput(attrs={'class': 'form-control'}),
