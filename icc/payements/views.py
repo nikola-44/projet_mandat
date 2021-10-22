@@ -10,27 +10,15 @@ stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class CheckoutPageView(TemplateView):
     template_name = '../produits/templates/checkout.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['key'] = settings.STRIPE_PUBLISHABLE_KEY
+        context = super(CheckoutPageView, self).get_context_data(**kwargs)
+        # context['key'] = settings.STRIPE_PUBLIC_KEY
+        context.update({
+            "STRIPE_PUBLIC_KEY": settings.STRIPE_PUBLIC_KEY,
+        })
         return context
 
 
@@ -42,4 +30,4 @@ def charge(request):
             description='A Django charge',
             source=request.POST['stripeToken']
         )
-        return render(request, 'charge.html')
+        return render(request, '../produits/templates/charge.html')

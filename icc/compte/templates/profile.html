@@ -17,7 +17,7 @@
     <form action="{% url 'profile' %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Modifier">
+        <input type="submit" class="btn btn-success" value="Modifier">
     </form>
 </div>
 </body>

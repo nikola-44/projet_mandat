@@ -85,9 +85,8 @@ def profile(request):
         form = ProfileModifierForm(request.POST, instance=request.user.client)
         print(request.user.client)
         if form.is_valid():
-            form.dateNaissance.widget.value_from_datadict(request.user.client.dateNaissance)
             form.save()
-            return redirect('profile')
+            return redirect('accueil')
     else:
         form = ProfileModifierForm(instance=request.user.client)
     context = {
