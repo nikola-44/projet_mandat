@@ -4,6 +4,10 @@ html, body {
     height: 100%;
 }
 
+.main{
+    min-height: 781px;
+}
+
 main {
     min-height: 100%;
     position: relative;
