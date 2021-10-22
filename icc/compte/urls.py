@@ -13,4 +13,5 @@ urlpatterns = [
     path('supprimer_client/<str:pk>', views.supprimer_client, name='supprimer_client'),
     path('profile/', views.profile, name='profile'),
     path('<str:pk>/', views.modifier_client, name='modifier_client'),
+
 ]

@@ -52,17 +52,46 @@
     </div>
 
     <div class="mid-text">
-        <div class="titreAccueil">
+
+        <div class="titre-mid">
             Love is in the air
-        </div>
+        </div><br><br><br>
+
         <div class="coiffure">
-            <input button>
-        </div>
+            Envie de changement ?
+            Catisa vous propose des rendez-vous en ligne !
+            Cliquez <button type="button" class="boutonRes"
+                            onclick="location.href='{% url 'reservations' %}'">ici
+                    </button> pour plus d'informations.
+        </div><br><br><br>
+
+        <div class="prestations">
+            Si vous souhaitez connaître les prix de toutes nos prestations, cliquez <button type="button" class="boutonRes"
+                            onclick="location.href='{% url 'prestations' %}'">ici
+                    </button> pour plus de détails.
+        </div><br><br><br>
+
+        <div class="prestations">
+            Vous voulez de tout nouveaux produits ? Rendez-vous sur la page <button type="button" class="boutonRes"
+                            onclick="location.href='{% url 'produits:home' %}'"> produits
+                    </button> !
+        </div><br><br><br>
+
+    </div><br><br><br><br><br>
+
+    <div class="bas-text"><br><br>
+
+        <div class="titre-mid">
+            Des questions ?
+        </div><br>
+
+        <div class="contact">
+            Rendez-vous sur la page <button type="button" class="boutonCont"
+                            onclick="location.href='{% url 'contact' %}'">contact
+                    </button> .
+        </div><br><br>
     </div>
 
-    <div class="bas-text">
-
-    </div>
     </body>
     </html>
     <br><br><br><br><br><br><br><br><br><br><br><br>
